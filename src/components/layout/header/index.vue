@@ -9,11 +9,27 @@
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+import axios from 'axios';
 
 const handleClick = (num: number) => {
 
     console.log('click', num);
+    axios({
+        url: "/api/post",
 
+        method: "post",
+        data: "{}",
+        headers: { "Content-type": "application/json" },
+    }).then((res: {}) => {
+        console.log(res);
+    });
+
+    // axios({
+    //     url: "/test",
+    //     method: "get",
+    // }).then((res: {}) => {
+    //     console.log(res);
+    // });
     if (num) {
         router.push({
             name: "home",
