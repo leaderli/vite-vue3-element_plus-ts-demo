@@ -3,9 +3,7 @@ import { ref, reactive, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
-import { useCookies } from "vue3-cookies";
-import cookies from "../../util/cookie"
-import { use } from "element-plus/es/locale";
+import cookies from "@/util/cookie"
 
 const router = useRouter();
 const param = reactive({
