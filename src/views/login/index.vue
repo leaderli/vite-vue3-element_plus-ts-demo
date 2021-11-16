@@ -5,7 +5,6 @@ import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import { useCookies } from "vue3-cookies";
 import cookies from "../../util/cookie"
-import cookies2 from "@/util/cookie"
 import { use } from "element-plus/es/locale";
 
 const router = useRouter();
@@ -44,8 +43,6 @@ const submitForm = () => {
 
 onMounted(() => {
 
-    console.log(cookies);
-    console.log(cookies2);
 
     // const { cookies } = useCookies();
     let my_cookie_value = cookies.get("myCoookie");
