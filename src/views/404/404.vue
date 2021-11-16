@@ -54,7 +54,7 @@ export default {
 }
 .error-handle {
     margin-top:50px;
-    padding-bottom: 340px;
+    padding-bottom: 270px;
 }
 .error-btn {
     margin-left: 100px;

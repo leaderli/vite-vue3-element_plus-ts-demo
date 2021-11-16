@@ -10,7 +10,7 @@ const routes = [
 			{
 				path: "/home",
 				name: "home",
-				component: () => import("../pages/home/index.vue"),
+				component: () => import("@/pages/home/index.vue"),
 				meta: {
 					title: "首页",
 					icon: "",
@@ -19,13 +19,31 @@ const routes = [
 			{
 				path: "/about",
 				name: "about",
-				component: () => import("../pages/about/index.vue"),
+				component: () => import("@/pages/about/index.vue"),
 				meta: {
 					title: "关于",
 					icon: "",
 				},
 			},
+			{
+				path: "/404",
+				name: "404",
+				component: () => import("@/views/404/404.vue"),
+				meta: {
+					title: "404",
+					icon: "",
+				},
+			},
 		],
+	},
+	{
+		path: "/login",
+		name: "login",
+		component: () => import("@/views/login/login.vue"),
+		meta: {
+			title: "login",
+			icon: "",
+		},
 	},
 ];
 

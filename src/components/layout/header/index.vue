@@ -2,6 +2,7 @@
     <div class="action">
         <h2 @click="handleClick(1)">首页</h2>
         <h2 @click="handleClick(0)">关于</h2>
+        <h2 @click="handleClick(2)">关于</h2>
     </div>
 </template>
 
@@ -30,13 +31,17 @@ const handleClick = (num: number) => {
     // }).then((res: {}) => {
     //     console.log(res);
     // });
-    if (num) {
+    if (num===1) {
         router.push({
             name: "home",
         });
-    } else {
+    } else if(num===0) {
         router.push({
             name: "about",
+        });
+    }else{
+        router.push({
+            name: "404",
         });
     }
 };
