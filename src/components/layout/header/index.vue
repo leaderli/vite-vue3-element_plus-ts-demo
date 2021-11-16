@@ -2,7 +2,7 @@
     <div class="action">
         <h2 @click="handleClick(1)">首页</h2>
         <h2 @click="handleClick(0)">关于</h2>
-        <h2 @click="handleClick(2)">关于</h2>
+        <h2 @click="handleClick(2)">404</h2>
     </div>
 </template>
 
