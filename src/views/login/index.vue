@@ -72,15 +72,18 @@ const submitForm = () => {
     </div>
 </template>
 
-<!-- <style scoped>
-.login-wrap {
-    position: relative;
+ <style scoped>
+ body{
+    margin: 0;
+    padding: 0;
+    }
+ .login-wrap {
     width: 100%;
-    height: 100%;
-    /* background-image: url(~@/assets/img/login-bg.jpg); */
-    background-size: 100%;
+    height: 100%!important;
+    background-image: url(../../assets/img/login-bg.jpg);
+    background-size: 100%!important;
 }
-.ms-title {
+/* .ms-title {
     width: 100%;
     line-height: 50px;
     text-align: center;
@@ -113,5 +116,5 @@ const submitForm = () => {
     font-size: 12px;
     line-height: 30px;
     color: #fff;
-}
-</style> -->
+} */
+</style>
