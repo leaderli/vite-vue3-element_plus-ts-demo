@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
+import { useCookies } from "vue3-cookies";
+import cookies from "../../util/cookie"
+import cookies2 from "@/util/cookie"
+import { use } from "element-plus/es/locale";
 
 const router = useRouter();
 const param = reactive({
@@ -37,6 +41,19 @@ const submitForm = () => {
 
 // const store = useStore();
 // store.commit("clearTags");
+
+onMounted(() => {
+
+    console.log(cookies);
+    console.log(cookies2);
+
+    // const { cookies } = useCookies();
+    let my_cookie_value = cookies.get("myCoookie");
+    console.log(my_cookie_value);
+    cookies.set("myCoookie", "abcdefg");
+    my_cookie_value = cookies.get("myCoookie");
+    console.log(my_cookie_value);
+})
 </script>
 
 <template>
