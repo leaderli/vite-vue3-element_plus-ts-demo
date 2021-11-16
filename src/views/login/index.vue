@@ -1,61 +1,49 @@
-<script lang="ts">
+<script setup lang="ts">
 import { ref, reactive } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 
-export default {
-    setup() {
-        const router = useRouter();
-        const param = reactive({
-            username: "admin",
-            password: "123123",
-        });
+const router = useRouter();
+const param = reactive({
+    username: "admin",
+    password: "123123",
+});
 
-        const rules = {
-            username: [
-                {
-                    required: true,
-                    message: "请输入用户名",
-                    trigger: "blur",
-                },
-            ],
-            password: [
-                { required: true, message: "请输入密码", trigger: "blur" },
-            ],
-        };
-        const login = ref(null);
-        // const submitForm = () => {
-        //     login.value.validate((valid) => {
-        //         if (valid) {
-        //             ElMessage.success("登录成功");
-        //             localStorage.setItem("ms_username", param.username);
-        //             router.push("/");
-        //         } else {
-        //             ElMessage.error("登录成功");
-        //             return false;
-        //         }
-        //     });
-        // };
-
-        const store = useStore();
-        store.commit("clearTags");
-
-        return {
-            param,
-            rules,
-            login,
-            // submitForm,
-        };
-    },
+const rules = {
+    username: [
+        {
+            required: true,
+            message: "请输入用户名",
+            trigger: "blur",
+        },
+    ],
+    password: [{ required: true, message: "请输入密码", trigger: "blur" }],
 };
+const login = ref(null);
+const submitForm = () => {
+    ElMessage.success("登录成功");
+    // login.value.validate((valid) => {
+    //     if (valid) {
+    //         ElMessage.success("登录成功");
+    //         localStorage.setItem("ms_username", param.username);
+    //         router.push("/");
+    //     } else {
+    //         ElMessage.error("登录成功");
+    //         return false;
+    //     }
+    // });
+};
+
+// const store = useStore();
+// store.commit("clearTags");
 </script>
 
 <template>
     <div class="login-wrap">
         <div class="ms-login">
             <div class="ms-title">后台管理系统</div>
-            <!-- <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="ms-content">
+            <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="ms-content">
                 <el-form-item prop="username">
                     <el-input v-model="param.username" placeholder="username">
                         <template #prepend>
@@ -64,8 +52,12 @@ export default {
                     </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="param.password"
-                        @keyup.enter="submitForm()">
+                    <el-input
+                        type="password"
+                        placeholder="password"
+                        v-model="param.password"
+                        @keyup.enter="submitForm()"
+                    >
                         <template #prepend>
                             <el-button icon="el-icon-lock"></el-button>
                         </template>
@@ -75,17 +67,17 @@ export default {
                     <el-button type="primary" @click="submitForm()">登录</el-button>
                 </div>
                 <p class="login-tips">Tips : 用户名和密码随便填。</p>
-            </el-form> -->
+            </el-form>
         </div>
     </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .login-wrap {
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/login-bg.jpg);
+    /* background-image: url(~@/assets/img/login-bg.jpg); */
     background-size: 100%;
 }
 .ms-title {
@@ -122,4 +114,4 @@ export default {
     line-height: 30px;
     color: #fff;
 }
-</style>
+</style> -->

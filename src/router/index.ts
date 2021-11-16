@@ -1,7 +1,11 @@
 import { createRouter, createMemoryHistory } from "vue-router";
 
-import LayOut from "../components/layout/index.vue";
+import LayOut from "@/components/layout/index.vue";
 const routes = [
+	{
+		path: "/login",
+		component: () => import("@/views/login/index.vue"),
+	},
 	{
 		path: "/",
 		component: LayOut,
@@ -10,7 +14,7 @@ const routes = [
 			{
 				path: "/home",
 				name: "home",
-				component: () => import("../pages/home/index.vue"),
+				component: () => import("@/views/home/index.vue"),
 				meta: {
 					title: "首页",
 					icon: "",
@@ -19,7 +23,7 @@ const routes = [
 			{
 				path: "/about",
 				name: "about",
-				component: () => import("../pages/about/index.vue"),
+				component: () => import("@/views/about/index.vue"),
 				meta: {
 					title: "关于",
 					icon: "",

@@ -5,6 +5,8 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import router from "./router";
 
+import "./permission";
+
 const app = createApp(App);
 //引入vuex
 app.use(store, key);
