@@ -3,10 +3,6 @@ import { createRouter, createMemoryHistory } from "vue-router";
 import LayOut from "@/components/layout/index.vue";
 const routes = [
 	{
-		path: "/login",
-		component: () => import("@/views/login/index.vue"),
-	},
-	{
 		path: "/",
 		component: LayOut,
 		redirect: "",
@@ -43,7 +39,7 @@ const routes = [
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("@/views/login/login.vue"),
+		component: () => import("@/views/login/index.vue"),
 		meta: {
 			title: "login",
 			icon: "",
