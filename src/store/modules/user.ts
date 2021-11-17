@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { User } from '@/type/store/user'
+import { User } from '@/type/user'
 
 
 export const user = defineStore({

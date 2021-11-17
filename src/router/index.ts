@@ -1,16 +1,24 @@
-import { createRouter, createMemoryHistory } from "vue-router";
-
+import { createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
+import { IMenubarList } from '@/type/layout';
 import LayOut from "@/components/layout/index.vue";
-const routes = [
+import home from "@/views/home/index.vue"
+
+
+export const allowRouter: Array<IMenubarList> = [
 	{
+		name: "",
 		path: "/",
+		meta: {
+			title: "404",
+			icon: "",
+		},
 		component: LayOut,
 		redirect: '',
 		children: [
 			{
 				path: "/home",
 				name: "home",
-				component: () => import("@/views/home/index.vue"),
+				component: home,
 				meta: {
 					title: "首页",
 					icon: "",
@@ -19,7 +27,7 @@ const routes = [
 			{
 				path: "/about",
 				name: "about",
-				component: () => import("@/views/about/index.vue"),
+				component: () =>import("@/views/about/index.vue"),
 				meta: {
 					title: "关于",
 					icon: "",
@@ -49,7 +57,7 @@ const routes = [
 
 const router = createRouter({
 	history: createMemoryHistory(),
-	routes,
+	routes: allowRouter as RouteRecordRaw[]
 });
 
 export default router;
