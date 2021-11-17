@@ -1,18 +1,18 @@
-import { createStore } from "vuex";
+import { defineStore } from 'pinia'
 
-//声明state的类型
-interface User {
-	username: string;
-	password: string;
-}
+import { User } from '@/type/store/user'
 
-//定义store
-export const user = createStore<User>({
-	state: {
+
+export const user = defineStore({
+	id: 'user',
+	state: (): User => ({
 		username: "li",
-		password:'li'
+		password: 'li'
+	}),
+	getters:{
+
 	},
-	mutations: {},
-	getters: {},
-	actions: {},
-});
+	actions:{
+
+	}
+})();

@@ -1,12 +1,11 @@
 <template>
     <h2>about页面</h2>
-      <p>{{ store.state.user.username }}</p>
+      <p>{{ user.username }}</p>
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store';
+import { user} from '@/store/modules/user';
 
 
 
-const store = useStore()
 </script>
