@@ -31,25 +31,10 @@ const rules = {
 const login = ref(null);
 const submitForm = () => {
     ElMessage.success("登录成功");
-    // login.value.validate((valid) => {
-    //     if (valid) {
-    //         ElMessage.success("登录成功");
-    //         localStorage.setItem("ms_username", param.username);
-    //         router.push("/");
-    //     } else {
-    //         ElMessage.error("登录成功");
-    //         return false;
-    //     }
-    // });
+    router.push("/");
 };
 
-// const store = useStore();
-// store.commit("clearTags");
-
 onMounted(() => {
-
-
-    // const { cookies } = useCookies();
     let my_cookie_value = cookies.get("myCoookie");
     console.log(my_cookie_value);
     cookies.set("myCoookie", "abcdefg");
@@ -59,10 +44,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="login-wrap">
+    <div class="btn">
         <div class="ms-login">
             <div class="ms-title">后台管理系统</div>
-            <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="ms-content">
+            <el-form :model="param" :rules="rules" ref="login" >
                 <el-form-item prop="username">
                     <el-input v-model="param.username" placeholder="username">
                         <template #prepend>
@@ -75,7 +60,6 @@ onMounted(() => {
                         type="password"
                         placeholder="password"
                         v-model="param.password"
-                        @keyup.enter="submitForm()"
                     >
                         <template #prepend>
                             <el-button icon="el-icon-lock"></el-button>
@@ -91,46 +75,53 @@ onMounted(() => {
     </div>
 </template>
 
-<!-- <style scoped>
-.login-wrap {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    /* background-image: url(~@/assets/img/login-bg.jpg); */
-    background-size: 100%;
-}
+<style scoped lang="scss">
+ .btn{
+     width: 100%;
+     height:920px;
+     background-image: url(@/assets/img/login-bg.jpg);
+     background-size: 100%;
+ }
+ .ms-login{
+     text-align: center;
+    
+ } 
 .ms-title {
-    width: 100%;
-    line-height: 50px;
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-    border-bottom: 1px solid #ddd;
+    padding-top: 200px;
+    font-size: 50px;
 }
-.ms-login {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 350px;
-    margin: -190px 0 0 -175px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.3);
-    overflow: hidden;
+.el-form{
+    padding-top: 50px;
 }
-.ms-content {
-    padding: 30px 30px;
+.el-form-item{
+    padding-top: 30px;
+    padding-left: 700px;
+    width: 500px;
 }
+// .ms-login {
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     width: 350px;
+//     margin: -190px 0 0 -175px;
+//     border-radius: 5px;
+//     background: rgba(255, 255, 255, 0.3);
+//     overflow: hidden;
+// }
+// .ms-content {
+//     padding: 30px 30px;
+// }
 .login-btn {
     text-align: center;
 }
-.login-btn button {
-    width: 100%;
-    height: 36px;
-    margin-bottom: 10px;
-}
+// .login-btn button {
+//     width: 100%;
+//     height: 36px;
+//     margin-bottom: 10px;
+// }
 .login-tips {
     font-size: 12px;
     line-height: 30px;
     color: #fff;
-}
-</style> -->
+} 
+</style>
