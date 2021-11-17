@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { useStore } from "vuex";
+// import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import cookies from "@/util/cookie"
+import { useStore } from '@/store';
+
+
+
+const store = useStore()
+
+console.log('hello user ', store.state.user.username)
 
 const router = useRouter();
 const param = reactive({

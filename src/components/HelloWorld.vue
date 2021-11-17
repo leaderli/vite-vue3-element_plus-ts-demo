@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import { useStore } from '../store';
+import { useStore } from '@/store';
 
 
 
 const store = useStore()
 
-console.log(
 
-  store.state.username)
+
+console.log('hello user ', store.state.user)
 // 定义使用父组件的变量
 // const props = defineProps({
 //   msg: {
@@ -68,7 +68,7 @@ console.log(store)
 </script>
 
 <template>
-  <p>{{ store.state.username }}</p>
+  <p>{{ store.state.user.username }}</p>
   <button @click="handleClick">点击调用父组件方法</button>
   <p>{{ counter }}</p>
   <button @click="counter++">增加</button>
