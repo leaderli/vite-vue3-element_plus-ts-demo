@@ -22,8 +22,10 @@ const rules = {
 };
 const login = ref(null);
 const submitForm = () => {
-    localStorage.setItem("ms_username", param.username);
-    router.push("/home");
+    router.push("/");
+    var millisecond = new Date().getTime();
+    var expiresTime = new Date(millisecond + 60 * 1000 * 15 );
+    cookies.set("ms_username", param.username,expiresTime)
     ElMessage.success("登录成功");
     
 };
