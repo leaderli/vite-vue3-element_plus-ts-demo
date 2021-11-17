@@ -4,7 +4,6 @@ import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import cookies from "@/util/cookie"
-
 const router = useRouter();
 const param = reactive({
     username: "admin",
@@ -23,8 +22,10 @@ const rules = {
 };
 const login = ref(null);
 const submitForm = () => {
+    localStorage.setItem("ms_username", param.username);
+    router.push("/home");
     ElMessage.success("登录成功");
-    router.push("/");
+    
 };
 
 onMounted(() => {
@@ -40,7 +41,7 @@ onMounted(() => {
     <div class="btn">
         <div class="ms-login">
             <div class="ms-title">后台管理系统</div>
-            <el-form :model="param" :rules="rules" ref="login" >
+            <el-form :model="param" :rules="rules" ref="login" class="ms-form">
                 <el-form-item prop="username">
                     <el-input v-model="param.username" placeholder="username">
                         <template #prepend>
@@ -70,50 +71,43 @@ onMounted(() => {
 
 <style scoped lang="scss">
  .btn{
-     width: 100%;
-     height:920px;
-     background-image: url(@/assets/img/login-bg.jpg);
-     background-size: 100%;
+     position: relative;
+     display: flex;
+     height:100%;
+     background-image: url(@/assets/img/login-bg1.jpeg);
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center center;
  }
  .ms-login{
-     text-align: center;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
     
  } 
 .ms-title {
-    padding-top: 200px;
     font-size: 50px;
+    margin-left: 50px;
 }
-.el-form{
+.ms-form{
     padding-top: 50px;
 }
 .el-form-item{
-    padding-top: 30px;
-    padding-left: 700px;
-    width: 500px;
+    width: 400px;
 }
-// .ms-login {
-//     position: absolute;
-//     left: 50%;
-//     top: 50%;
-//     width: 350px;
-//     margin: -190px 0 0 -175px;
-//     border-radius: 5px;
-//     background: rgba(255, 255, 255, 0.3);
-//     overflow: hidden;
-// }
-// .ms-content {
-//     padding: 30px 30px;
-// }
+
 .login-btn {
     text-align: center;
 }
-// .login-btn button {
-//     width: 100%;
-//     height: 36px;
-//     margin-bottom: 10px;
-// }
+.login-btn button {
+    width: 100px;
+    height: 36px;
+    margin-top: 10px;
+}
 .login-tips {
-    font-size: 12px;
+    font-size: 18px;
+    text-align: center;
     line-height: 30px;
     color: #fff;
 } 
