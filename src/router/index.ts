@@ -1,7 +1,6 @@
 import { createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
 import { IMenubarList } from '@/type/layout';
 import LayOut from "@/components/layout/index.vue";
-import home from "@/views/home/index.vue"
 
 
 export const allowRouter: Array<IMenubarList> = [
@@ -18,7 +17,7 @@ export const allowRouter: Array<IMenubarList> = [
 			{
 				path: "/home",
 				name: "home",
-				component: home,
+				component: () => import("@/views/home/index.vue"),
 				meta: {
 					title: "首页",
 					icon: "",

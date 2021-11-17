@@ -23,3 +23,4 @@ export interface IMenubarList {
     component:component
     children?: Array<IMenubarList>
 }
+
