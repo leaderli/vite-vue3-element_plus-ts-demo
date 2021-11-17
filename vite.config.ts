@@ -24,7 +24,7 @@ export default defineConfig(({ command, mode }) => {
 			//是否使用https
 			https: false,
 			//启动后自动打开浏览器
-			open: true,
+			open: false,
 
 			//代理配置，
 			proxy: {
