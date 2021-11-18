@@ -1,9 +1,35 @@
 <template>
-    <Header />
-    <router-view></router-view>
+<el-container class="layout">
+    <el-aside width="auto" class="asside">
+        <MenuBar />
+    </el-aside>
+    <el-container>
+        <el-header class="header">
+            <Header />
+        </el-header>
+        <el-main class="main">
+        </el-main>
+    </el-container>
+</el-container>
+    
+    <!-- <router-view></router-view> -->
 </template>
 <script setup lang="ts">
-import Header from './header/index.vue'
-
-
+import Header from '@/components/layout/header/index.vue';
+import MenuBar from '@/components/layout/menu/MenuBar.vue';
 </script>
+<style scoped lang="scss">
+.layout{
+    height: 100%;
+    .asside{
+        background-color:rgb(48,65,86);
+    }
+    .header{
+        height: 50px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .main{
+        // background-color: yellow;
+    }
+}
+</style>
