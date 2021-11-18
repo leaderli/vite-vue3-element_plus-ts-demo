@@ -1,34 +1,36 @@
 <template>
-<el-container class="layout">
-    <el-aside width="auto" class="asside">
-        <MenuBar />
-    </el-aside>
-    <el-container>
-        <el-header class="header">
-            <Header />
-        </el-header>
-        <el-main class="main">
-        </el-main>
+    <el-container class="layout">
+        <el-aside width="auto" class="asside">
+            <MenuBar />
+        </el-aside>
+        <el-container>
+            <el-header class="header">
+                <Header />
+            </el-header>
+            <el-main class="main">
+                <HelloWorld></HelloWorld>
+            </el-main>
+        </el-container>
     </el-container>
-</el-container>
-    
+
     <!-- <router-view></router-view> -->
 </template>
 <script setup lang="ts">
 import Header from '@/components/layout/header/index.vue';
 import MenuBar from '@/components/layout/menu/MenuBar.vue';
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 <style scoped lang="scss">
-.layout{
+.layout {
     height: 100%;
-    .asside{
-        background-color:rgb(48,65,86);
+    .asside {
+        background-color: rgb(48, 65, 86);
     }
-    .header{
+    .header {
         height: 50px;
         border-bottom: 1px solid #e5e5e5;
     }
-    .main{
+    .main {
         // background-color: yellow;
     }
 }
