@@ -1,45 +1,22 @@
 <template>
     <MenuLogo></MenuLogo>
   <el-menu
-    default-active="2"
+    :default-active="activeIdex"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
+    router
   >
    <MenuItem :menuList='menuList'></MenuItem>
-    <!-- <el-sub-menu index="1">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>Navigator One</span>
-      </template>
-      <el-menu-item-group>
-        <template #title><span>Group One</span></template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <template #title><span>item four</span></template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu> -->
-   
   </el-menu>
 </template>
 
 <script setup lang="ts">
-import {  ref,reactive } from 'vue'
+import {  ref,reactive,computed } from 'vue'
+import { useRoute } from 'vue-router'
 import MenuItem from '@/components/layout/menu/MenuItem.vue'
 import MenuLogo from '@/components/layout/menu/MenuLogo.vue'
-// import {
-//   Location,
-//   Document,
-//   Menu as IconMenu,
-//   Setting,
-// } from '@element-plus/icons'
 
 let menuList=reactive([
   {
@@ -167,7 +144,12 @@ let menuList=reactive([
     ]
   }
 ])
-
+// 当前路由
+    const route = useRoute();
+    const activeIdex=computed(()=>{
+      const {path}=route;
+      return path
+    })
     const isCollapse = ref(false)
     const handleOpen = (key: any, keyPath: any) => {
       console.log(key, keyPath)

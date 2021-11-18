@@ -8,11 +8,11 @@
             <Header />
         </el-header>
         <el-main class="main">
+            <router-view></router-view>
         </el-main>
     </el-container>
 </el-container>
     
-    <!-- <router-view></router-view> -->
 </template>
 <script setup lang="ts">
 import Header from '@/components/layout/header/index.vue';

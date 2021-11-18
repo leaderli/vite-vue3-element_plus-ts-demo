@@ -8,11 +8,11 @@ export const allowRouter: Array<IMenubarList> = [
 		name: "",
 		path: "/",
 		meta: {
-			title: "404",
-			icon: "",
+			title: "首页",
+			icon: "HomeFilled",
 		},
 		component: LayOut,
-		redirect: '',
+		redirect: '/home',
 		children: [
 			{
 				path: "/home",
@@ -20,7 +20,7 @@ export const allowRouter: Array<IMenubarList> = [
 				component: () => import("@/views/home/index.vue"),
 				meta: {
 					title: "首页",
-					icon: "",
+					icon: "HomeFilled",
 				},
 			},
 			{
@@ -29,19 +29,20 @@ export const allowRouter: Array<IMenubarList> = [
 				component: () =>import("@/views/about/index.vue"),
 				meta: {
 					title: "关于",
-					icon: "",
+					icon: "Setting",
 				},
 			},
-			{
-				path: "/404",
-				name: "404",
-				component: () => import("@/views/404/404.vue"),
-				meta: {
-					title: "404",
-					icon: "",
-				},
-			},
+			
 		],
+	},
+	{
+		path: "/404",
+		name: "404",
+		component: () => import("@/views/404/404.vue"),
+		meta: {
+			title: "404",
+			icon: "Warning",
+		},
 	},
 	{
 		path: "/login",
