@@ -1,15 +1,16 @@
 <script setup lang="ts">
 
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import { useStore } from '@/store';
+
+
+import { defineUser } from '@/store/modules/user';
+
+
+const user = defineUser()
 
 
 
-const store = useStore()
-
-
-
-console.log('hello user ', store.state.user)
+console.log('hello user ', user)
 // 定义使用父组件的变量
 // const props = defineProps({
 //   msg: {
@@ -64,11 +65,10 @@ onUnmounted(() => {
 })
 
 
-console.log(store)
 </script>
 
 <template>
-  <p>{{ store.state.user.username }}</p>
+  <p>{{ user.username }}</p>
   <button @click="handleClick">点击调用父组件方法</button>
   <p>{{ counter }}</p>
   <button @click="counter++">增加</button>
