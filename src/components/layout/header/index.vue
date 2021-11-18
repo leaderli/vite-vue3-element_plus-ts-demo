@@ -1,4 +1,14 @@
 <template>
+ <Collapse></Collapse>
+</template>
+<script setup lang='ts'>
+import { ref,reactive } from 'vue'
+import Collapse from '@/components/layout/header/Collapse.vue'
+</script>
+<style scoped lang='scss'>
+</style>
+
+<!-- <template>
     <div class="action">
         <h2 @click="handleClick(1)">首页</h2>
         <h2 @click="handleClick(0)">关于</h2>
@@ -59,4 +69,4 @@ h2 {
 h2:hover {
     color: red;
 }
-</style>
+</style> -->

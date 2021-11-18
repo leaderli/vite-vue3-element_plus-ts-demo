@@ -1,6 +1,6 @@
 <template>
  <div class="logo">
-   <!-- <img src="https://wpimg.wallstcn.com/69a1c46c-ed1c-4b46-8bd4-e9e686ef5251.png" alt="logo"/> -->
+   <img src="@/assets/img/logo1.png" alt="logo"/>
    <span class="title">Vite App</span>
  </div>
 </template>

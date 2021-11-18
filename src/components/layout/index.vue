@@ -28,6 +28,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
     .header {
         height: 50px;
         border-bottom: 1px solid #e5e5e5;
+        display: flex;
+        align-items: center;
     }
     .main {
         // background-color: yellow;

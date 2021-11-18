@@ -1,5 +1,5 @@
 <template>
-    <MenuLogo></MenuLogo>
+    <MenuLogo v-if="!isCollapse"></MenuLogo>
   <el-menu
     :default-active="activeIdex"
     class="el-menu-vertical-demo"
@@ -13,144 +13,23 @@
 </template>
 
 <script setup lang="ts">
-import {  ref,reactive,computed } from 'vue'
+import {  ref,computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { storeToRefs } from "pinia";
+import { definePage } from '@/store/modules/page';
 import MenuItem from '@/components/layout/menu/MenuItem.vue'
 import MenuLogo from '@/components/layout/menu/MenuLogo.vue'
-
-let menuList=reactive([
-  {
-    path:'/dashboard',
-    component:'Layout',
-    meta:{
-      title:'首页',
-      icon:'HomeFilled',
-      roles:["sys:manage"]
-    },
-    children:[]
-  },
-  {
-     path:'/system',
-    component:'Layout',
-    alwaysShow:true,
-    name:'system',
-    meta:{
-      title:'系统管理',
-      icon:'Setting',
-      roles:["sys:manage"],
-      parentId:0
-    },
-     children:[
-       {
-          path:'/department',
-          component:'/system/department/department',
-          alwaysShow:false,
-          name:'department',
-          meta:{
-            title:'机构管理',
-            icon:'OfficeBuilding',
-            roles:["sys:dept"],
-            parentId:17
-          },
-       },
-         {
-          path:'/userList',
-          component:'/system/User/UserList',
-          alwaysShow:false,
-          name:'userList',
-          meta:{
-            title:'用户管理',
-            icon:'User',
-            roles:["sys:user"],
-            parentId:17
-          },
-       },
-        {
-          path:'/roleList',
-          component:'/system/Role/RoleList',
-          alwaysShow:false,
-          name:'roleList',
-          meta:{
-            title:'角色管理',
-            icon:'UserFilled',
-            roles:["sys:role"],
-            parentId:17
-          },
-       },
-       {
-          path:'/menuList',
-          component:'/system/Menu/MenuList',
-          alwaysShow:false,
-          name:'menuList',
-          meta:{
-            title:'权限管理',
-            icon:'Pointer',
-            roles:["sys:menu"],
-            parentId:17
-          },
-       }
-     ]
-  },
-   {
-    path:'/goods',
-    component:'Layout',
-    alwaysShow:true,
-    name:"goods",
-    meta:{
-      title:'商品管理',
-      icon:'Present',
-      roles:["sys:goods"],
-      parentId:0
-    },
-    children:[
-       {
-          path:'/goodCategory',
-          component:'/goods/goodCategory/goodCategoryList',
-          alwaysShow:false,
-          name:'goodCategory',
-          meta:{
-            title:'商品分类',
-            icon:'Lock',
-            roles:["sys:goodCategory"],
-            parentId:34
-          },
-       }
-    ]
-  },
-   {
-    path:'/systenConfig',
-    component:'Layout',
-    alwaysShow:true,
-    name:"systenConfig",
-    meta:{
-      title:'系统工具',
-      icon:'Odometer',
-      roles:["sys:systenConfig"],
-      parentId:0
-    },
-    children:[
-       {
-          path:'/document',
-          component:'/system/config/systemDocument',
-          alwaysShow:false,
-          name:'http://42.193.158.170:8089/swagger-ui/index.html',
-          meta:{
-            title:'接口文档',
-            icon:'Tickets',
-            roles:["sys:document"],
-            parentId:42
-          },
-       }
-    ]
-  }
-])
+import { allowRouter as menuList } from '@/router'
 // 当前路由
     const route = useRoute();
     const activeIdex=computed(()=>{
-      const {path}=route;
+    const {path}=route;
       return path
     })
-    const isCollapse = ref(false)
+    const {getCollapse} = storeToRefs(definePage())
+    const isCollapse = computed(()=>{
+         return !getCollapse.value
+    })
     const handleOpen = (key: any, keyPath: any) => {
       console.log(key, keyPath)
     }

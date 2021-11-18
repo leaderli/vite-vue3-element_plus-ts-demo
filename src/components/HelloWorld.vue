@@ -1,14 +1,7 @@
 <script setup lang="ts">
-
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-
-
 import { defineUser } from '@/store/modules/user';
-
-
 const user = defineUser()
-
-
 
 console.log('hello user ', user)
 // 定义使用父组件的变量
