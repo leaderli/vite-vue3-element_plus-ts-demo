@@ -1,17 +1,15 @@
 <template>
-<el-icon class="fn-icon" @click="changeFlag">
-<component :is="flag?Expand:Fold"/>
-</el-icon>
+    <el-icon class="fn-icon" @click="menuBar.toggleCollapse">
+        <component :is="menuBar.collapse ? Expand : Fold" />
+    </el-icon>
 </template>
 <script setup lang='ts'>
-import { storeToRefs } from "pinia";
-import { useMainStore } from '@/store/index';
+import { defineMenuBar } from '@/store/modules/layout';
 import { Fold, Expand } from '@element-plus/icons'
-const {flag} = storeToRefs(useMainStore())
-const {changeFlag}=useMainStore()
+const menuBar = defineMenuBar();
 </script>
 <style scoped lang='scss'>
-.fn-icon{
+.fn-icon {
     display: flex;
     align-items: center;
     font-size: 24px;
