@@ -1,9 +1,9 @@
 <template>
-    <MenuLogo v-if="!isCollapse"></MenuLogo>
+    <MenuLogo class="layout-logo" v-if="!flag"></MenuLogo>
   <el-menu
     :default-active="activeIdex"
     class="el-menu-vertical-demo"
-    :collapse="isCollapse"
+    :collapse="flag"
     @open="handleOpen"
     @close="handleClose"
     router
@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import {  ref,computed } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from "pinia";
-import { definePage } from '@/store/modules/page';
+import { useMainStore } from '@/store/index';
 import MenuItem from '@/components/layout/menu/MenuItem.vue'
 import MenuLogo from '@/components/layout/menu/MenuLogo.vue'
 import { allowRouter as menuList } from '@/router'
@@ -26,10 +26,8 @@ import { allowRouter as menuList } from '@/router'
     const {path}=route;
       return path
     })
-    const {getCollapse} = storeToRefs(definePage())
-    const isCollapse = computed(()=>{
-         return !getCollapse.value
-    })
+    const {flag} = storeToRefs(useMainStore())
+    
     const handleOpen = (key: any, keyPath: any) => {
       console.log(key, keyPath)
     }
@@ -39,6 +37,20 @@ import { allowRouter as menuList } from '@/router'
 </script>
 
 <style scoped>
+@keyframes logoAnimation {
+  0%{
+    transform:scale(0)
+  }
+  50%{
+    transform:scale(1)
+  }
+  100%{
+    transform:scale(1)
+  }
+}
+.layout-logo{
+ animation: logoAnimation 1s ease-out;
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 230px;
   min-height: 400px;

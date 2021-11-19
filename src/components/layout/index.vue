@@ -6,6 +6,7 @@
     <el-container>
         <el-header class="header">
             <Header />
+            <p>IVR</p>
         </el-header>
         <el-main class="main">
             <router-view></router-view>
@@ -30,9 +31,10 @@ import HelloWorld from '@/components/HelloWorld.vue'
         border-bottom: 1px solid #e5e5e5;
         display: flex;
         align-items: center;
-    }
-    .main {
-        // background-color: yellow;
+        p{
+            font-size: 24px;
+            font-weight: bold;
+        }
     }
 }
 </style>
