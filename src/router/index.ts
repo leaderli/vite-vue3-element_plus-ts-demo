@@ -54,6 +54,15 @@ export const allowRouter: Array<IMenubarList> = [
 		},
 		
 	},
+	{
+		path: "/scene",
+		name: "scene",
+		component: () =>import("@/views/scene/scene.vue"),
+		meta: {
+			title: "菜单",
+			icon: "Setting",
+		},
+	},
 ];
 
 const router = createRouter({
