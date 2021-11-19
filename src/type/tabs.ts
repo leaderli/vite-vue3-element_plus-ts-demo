@@ -1,4 +1,9 @@
+export interface Tab {
+	index: number;
+	path: string;
+	title: string;
+}
 export interface Tabs {
-    path: string;
-    title: string
+	tabs: Array<Tab>;
+	activeTab: Tab | null;
 }

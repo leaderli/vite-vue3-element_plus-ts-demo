@@ -1,9 +1,9 @@
 import { createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
-import { IMenubarList } from '@/type/layout';
+import { IMenubar } from '@/type/layout';
 import LayOut from "@/components/layout/index.vue";
 
 
-export const allowRouter: Array<IMenubarList> = [
+export const allowRouter: Array<IMenubar> = [
 	{
 		name: "",
 		path: "/",

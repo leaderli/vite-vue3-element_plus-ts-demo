@@ -1,15 +1,30 @@
 // 选项卡的数据类型
-import { createPinia,defineStore } from "pinia";
+import { createPinia, defineStore } from "pinia";
 import { Tabs } from "@/type/tabs";
 
 export const pinia = createPinia();
-export const defineTabs = defineStore('tabs',{
-    state: ():Tabs => ({
-        
-            path: '',
-            title: ''
-        
-    }),
-    actions: {
-    }
-})
+export default defineStore("tabs", {
+	state: (): Tabs => ({
+		tabs: [],
+		activeTab: null,
+	}),
+	actions: {
+		addTab(path: string, title: string) {
+			if (this.tabs.filter((tab) => tab.path === path).length === 0) {
+				this.tabs.push({ index: this.tabs.length, path, title });
+			}
+
+			console.log(this.tabs);
+		},
+
+		removeTab(index: number) {
+			console.log("before", index, this.tabs.length);
+
+			if (index > -1 && index < this.tabs.length) {
+				this.tabs.splice(index, 1);
+				console.log("remove");
+			}
+			console.log("after", index, this.tabs.length);
+		},
+	},
+});

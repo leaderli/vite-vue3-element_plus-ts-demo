@@ -1,9 +1,9 @@
 <template>
-  <MenuLogo class="layout-logo" v-if="!menuBar.collapse"></MenuLogo>
+  <MenuLogo class="layout-logo" v-if="!siderBar.collapse"></MenuLogo>
   <el-menu
     :default-active="activeIdex"
     class="el-menu-vertical-demo"
-    :collapse="menuBar.collapse"
+    :collapse="siderBar.collapse"
     @open="handleOpen"
     @close="handleClose"
     router
@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { defineMenuBar } from '@/store/modules/layout';
+import { defineSiderBar } from '@/store/modules/layout';
 import MenuItem from '@/components/layout/menu/MenuItem.vue'
 import MenuLogo from '@/components/layout/menu/MenuLogo.vue'
 import { allowRouter as menuList } from '@/router'
@@ -25,7 +25,7 @@ const activeIdex = computed(() => {
   const { path } = route;
   return path
 })
-const menuBar = defineMenuBar();
+const siderBar = defineSiderBar();
 const handleOpen = (key: any, keyPath: any) => {
   console.log(key, keyPath)
 }

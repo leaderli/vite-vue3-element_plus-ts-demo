@@ -1,11 +1,11 @@
 
 import { defineStore } from "pinia";
 
-import { MenuBar } from "@/type/layout";
+import { SiderBar } from "@/type/layout";
 
 
-export const defineMenuBar= defineStore('main',{
-    state: ():MenuBar => ({
+export const defineSiderBar= defineStore('main',{
+    state: ():SiderBar => ({
         collapse:false,
     }),
     actions: {

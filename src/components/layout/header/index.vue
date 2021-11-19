@@ -1,9 +1,11 @@
 <template>
- <Collapse></Collapse>
+    <Collapse></Collapse>
+    <Tabs></Tabs>
 </template>
 <script setup lang='ts'>
-import { ref,reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import Collapse from '@/components/layout/header/Collapse.vue'
+import Tabs from '@/components/layout/tabs/Tabs.vue';
 </script>
 <style scoped lang='scss'>
 </style>

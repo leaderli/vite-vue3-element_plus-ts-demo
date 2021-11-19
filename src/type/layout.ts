@@ -5,11 +5,11 @@ type typeOf_import_vue = Promise<typeof import("*.vue")>;
 type func_typeOf_import_vue = () => typeOf_import_vue;
 type component = define_component | typeOf_import_vue | func_typeOf_import_vue;
 
-export interface MenuBar {
+export interface SiderBar {
 	collapse: Boolean;
 }
 
-export interface IMenubarList {
+export interface IMenubar {
 	parentId?: number | string;
 	id?: number | string;
 	name: string;
@@ -25,5 +25,5 @@ export interface IMenubarList {
 		alwaysShow?: boolean; // 当子路由只有一个的时候是否显示当前路由
 	};
 	component: component;
-	children?: Array<IMenubarList>;
+	children?: Array<IMenubar>;
 }

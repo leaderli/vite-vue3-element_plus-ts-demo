@@ -1,12 +1,12 @@
 <template>
-    <el-icon class="fn-icon" @click="menuBar.toggleCollapse">
-        <component :is="menuBar.collapse ? Expand : Fold" />
+    <el-icon class="fn-icon" @click="siderBar.toggleCollapse">
+        <component :is="siderBar.collapse ? Expand : Fold" />
     </el-icon>
 </template>
 <script setup lang='ts'>
-import { defineMenuBar } from '@/store/modules/layout';
+import { defineSiderBar } from '@/store/modules/layout';
 import { Fold, Expand } from '@element-plus/icons'
-const menuBar = defineMenuBar();
+const siderBar = defineSiderBar();
 </script>
 <style scoped lang='scss'>
 .fn-icon {
