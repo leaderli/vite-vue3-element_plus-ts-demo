@@ -1,6 +1,6 @@
 <template>
 <div class="app-container">
-    <div class="layui-ellem-quote">智能IVR客群管理</div>
+    <div class="layui-ellem-quote">菜单管理</div>
     <!-- 搜索部分 -->
     <div class="searchbtn">
          <el-form>
@@ -51,10 +51,19 @@
                 </el-row>
         </el-form>
     </div>
+    <!-- 表格部分 -->
+    <div>
+        <el-table>
+           <el-table-clumn></el-table-clumn>
+           <el-table-clumn></el-table-clumn>
+           <el-table-clumn></el-table-clumn>
+           <el-table-clumn></el-table-clumn>
+        </el-table>
+    </div>
+
 </div>
 </template>
 <script setup lang='ts'>
-import { ref,reactive } from 'vue'
 </script>
 <style scoped lang='scss'>
 .layui-ellem-quote{

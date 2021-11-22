@@ -5,5 +5,4 @@ export interface Tab {
 }
 export interface Tabs {
 	tabs: Array<Tab>;
-	activeTab: Tab | null;
 }

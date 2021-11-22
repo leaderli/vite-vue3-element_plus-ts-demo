@@ -29,10 +29,7 @@ defineProps({
 })
 
 const openTab = function (menuBar: IMenubar) {
-
-  console.log('openTab', menuBar);
   tabs.addTab(menuBar.path,menuBar.name)
-
 }
 </script>
 <style scoped lang="scss">

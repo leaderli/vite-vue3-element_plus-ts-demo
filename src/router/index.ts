@@ -38,11 +38,22 @@ export const allowRouter: Array<IMenubar> = [
 	{
 		path: "/404",
 		name: "404",
-		component: () => import("@/views/404/404.vue"),
+		component:LayOut,
 		meta: {
 			title: "404",
 			icon: "Warning",
 		},
+		children: [
+			{
+				path: "/404",
+				name: "404",
+				component: () => import("@/views/404/404.vue"),
+				meta: {
+					title: "404",
+					icon: "Warning",
+				},	
+			}
+		]
 	},
 	{
 		path: "/login",
@@ -57,11 +68,22 @@ export const allowRouter: Array<IMenubar> = [
 	{
 		path: "/scene",
 		name: "scene",
+		component:LayOut,
+		meta: {
+			title: "菜单",
+			icon: "Setting",
+		},
+		children: [
+			{
+		path: "/scene",
+		name: "scene",
 		component: () =>import("@/views/scene/scene.vue"),
 		meta: {
 			title: "菜单",
 			icon: "Setting",
 		},
+			}
+		]
 	},
 ];
 

@@ -1,74 +1,49 @@
 <template>
-    <Collapse></Collapse>
-    <Tabs></Tabs>
+        <el-row style="width: -webkit-fill-available;">
+            <el-col :span='2'>
+                <Collapse ></Collapse>
+            </el-col >
+            <el-col :span='20'>
+                <Tabs class="tablist"></Tabs>
+            </el-col>
+            <el-col :span='2'>
+                <div class="dropdown">
+                    <el-dropdown>
+                        <img src="@/assets/img/img.jpg" >
+                        <template #dropdown>
+                        <el-dropdown-menu>
+                            <el-dropdown-item>Action 1</el-dropdown-item>
+                            <el-dropdown-item>Action 2</el-dropdown-item>
+                            <el-dropdown-item @click="signOut">退出登录</el-dropdown-item>
+                        </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+                </div>
+            </el-col>
+        </el-row>
 </template>
 <script setup lang='ts'>
 import { ref, reactive } from 'vue'
 import Collapse from '@/components/layout/header/Collapse.vue'
 import Tabs from '@/components/layout/tabs/Tabs.vue';
+import { useRouter } from "vue-router";
+import cookies from "@/util/cookie"
+const router = useRouter();
+const signOut=()=>{
+ router.push("/logo");
+    cookies.remove("ms_username")
+}
 </script>
 <style scoped lang='scss'>
+    .dropdown{
+        margin-right: 30px;
+        img{
+            width: 46px;
+            height: 46px;
+            border-radius: 23px;
+            margin-top: 2px;
+        }
+      } 
+
 </style>
 
-<!-- <template>
-    <div class="action">
-        <h2 @click="handleClick(1)">首页</h2>
-        <h2 @click="handleClick(0)">关于</h2>
-        <h2 @click="handleClick(2)">404</h2>
-    </div>
-</template>
-
-<script setup lang="ts">
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-import axios from 'axios';
-
-const handleClick = (num: number) => {
-
-    console.log('click', num);
-    axios({
-        url: "/api/post",
-
-        method: "post",
-        data: "{}",
-        headers: { "Content-type": "application/json" },
-    }).then((res: {}) => {
-        console.log(res);
-    });
-
-    // axios({
-    //     url: "/test",
-    //     method: "get",
-    // }).then((res: {}) => {
-    //     console.log(res);
-    // });
-    if (num===1) {
-        router.push({
-            name: "home",
-        });
-    } else if(num===0) {
-        router.push({
-            name: "about",
-        });
-    }else{
-        router.push({
-            name: "404",
-        });
-    }
-};
-</script>
-
-<style>
-.action {
-    display: flex;
-}
-
-h2 {
-    padding: 0px 10px;
-    cursor: pointer;
-}
-h2:hover {
-    color: red;
-}
-</style> -->

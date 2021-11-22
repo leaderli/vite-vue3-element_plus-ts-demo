@@ -11,6 +11,7 @@ const siderBar = defineSiderBar();
 <style scoped lang='scss'>
 .fn-icon {
     display: flex;
+    margin-top: 15px;
     align-items: center;
     font-size: 24px;
     color: #303133;

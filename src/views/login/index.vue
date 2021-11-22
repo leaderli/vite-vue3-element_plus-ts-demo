@@ -32,10 +32,8 @@ const submitForm = () => {
 
 onMounted(() => {
     let my_cookie_value = cookies.get("myCoookie");
-    console.log(my_cookie_value);
     cookies.set("myCoookie", "abcdefg");
     my_cookie_value = cookies.get("myCoookie");
-    console.log(my_cookie_value);
 })
 </script>
 

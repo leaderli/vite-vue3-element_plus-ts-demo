@@ -6,7 +6,6 @@ export const pinia = createPinia();
 export default defineStore("tabs", {
 	state: (): Tabs => ({
 		tabs: [],
-		activeTab: null,
 	}),
 	actions: {
 		addTab(path: string, title: string) {
@@ -17,14 +16,15 @@ export default defineStore("tabs", {
 			console.log(this.tabs);
 		},
 
-		removeTab(index: number) {
-			console.log("before", index, this.tabs.length);
+		// removeTab(index: number) {
+		// 	console.log("before", index, this.tabs.length);
 
-			if (index > -1 && index < this.tabs.length) {
-				this.tabs.splice(index, 1);
-				console.log("remove");
-			}
-			console.log("after", index, this.tabs.length);
-		},
+		// 	if (index > -1 && index < this.tabs.length) {
+		// 		this.tabs.splice(index, 1);
+		// 		console.log("remove");
+		// 	}
+		// 	console.log("after", index, this.tabs.length);
+		// },
+		
 	},
 });
