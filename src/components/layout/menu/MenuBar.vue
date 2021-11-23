@@ -1,29 +1,32 @@
 <template>
-  <MenuLogo class="layout-logo" v-if="!siderBar.collapse"></MenuLogo>
-  <el-menu
-    :default-active="activeIdex"
-    class="el-menu-vertical-demo"
-    :collapse="siderBar.collapse"
-    router
-  >
-    <MenuItem :menuList="menuList"></MenuItem>
-  </el-menu>
+    <MenuLogo
+        v-if='!siderBar.collapse'
+        class='layout-logo'
+    />
+    <el-menu
+        :default-active='activeIdex'
+        class='el-menu-vertical-demo'
+        :collapse='siderBar.collapse'
+        router
+    >
+        <MenuItem :menu-list='menuList' />
+    </el-menu>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { defineSiderBar } from '@/store/modules/layout';
+import { defineSiderBar } from '@/store/modules/layout'
 import MenuItem from '@/components/layout/menu/MenuItem.vue'
 import MenuLogo from '@/components/layout/menu/MenuLogo.vue'
 import { allowRouter as menuList } from '@/router'
 // 当前路由
-const route = useRoute();
+const route = useRoute()
 const activeIdex = computed(() => {
-  const { path } = route;
-  return path
+    const { path } = route
+    return path
 })
-const siderBar = defineSiderBar();
+const siderBar = defineSiderBar()
 </script>
 
 <style scoped>

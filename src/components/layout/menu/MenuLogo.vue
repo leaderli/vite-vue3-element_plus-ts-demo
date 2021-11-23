@@ -1,8 +1,11 @@
 <template>
- <div class="logo">
-   <img src="@/assets/img/logo1.png" alt="logo"/>
-   <span class="title">Vite App</span>
- </div>
+    <div class='logo'>
+        <img
+            src='@/assets/img/logo1.png'
+            alt='logo'
+        >
+        <span class='title'>Vite App</span>
+    </div>
 </template>
 <script setup lang="ts">
 </script>

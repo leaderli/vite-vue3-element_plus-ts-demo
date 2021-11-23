@@ -1,15 +1,15 @@
 
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-import { SiderBar } from "@/type/layout";
+import { SiderBar } from '@/type/layout'
 
 
-export const defineSiderBar= defineStore('main',{
+export const defineSiderBar = defineStore('main',{
     state: ():SiderBar => ({
-        collapse:false,
+        collapse:false
     }),
     actions: {
-        toggleCollapse () {
+        toggleCollapse() {
             this.collapse = !this.collapse
         }
     }

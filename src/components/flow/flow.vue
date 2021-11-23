@@ -1,18 +1,17 @@
 <template>
     <div>
-        <el-button @click="add()">内部Add: {{ num }}</el-button>
+        <el-button @click='add()'>内部Add: {{ num }}</el-button>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { Graph } from '@antv/x6';
-import { ref, inject } from 'vue';
-const x6 = inject("node", "getNode") as any
-console.log(x6);
-console.log(x6.getNode);
+import { ref, inject } from 'vue'
+const x6 = inject('node', 'getNode') as any
+console.log(x6)
+console.log(x6.getNode)
 
 
-let num = ref(0);
+let num = ref(0)
 // const node = x6.getNode();
 
 // // 监听数据改变事件
@@ -30,7 +29,7 @@ function add() {
     // node.setData({
     // num: num + 1,
     // });
-    console.log('add', num.value);
+    console.log('add', num.value)
 
     num.value = num.value + 1
 }
