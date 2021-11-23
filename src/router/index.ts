@@ -1,7 +1,6 @@
-import { createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
-import { IMenubar } from '@/type/layout';
+import { createRouter, createMemoryHistory, RouteRecordRaw } from "vue-router";
+import { IMenubar } from "@/type/layout";
 import LayOut from "@/components/layout/index.vue";
-
 
 export const allowRouter: Array<IMenubar> = [
 	{
@@ -12,7 +11,7 @@ export const allowRouter: Array<IMenubar> = [
 			icon: "HomeFilled",
 		},
 		component: LayOut,
-		redirect: '/home',
+		redirect: "/home",
 		children: [
 			{
 				path: "/home",
@@ -26,19 +25,27 @@ export const allowRouter: Array<IMenubar> = [
 			{
 				path: "/about",
 				name: "about",
-				component: () =>import("@/views/about/index.vue"),
+				component: () => import("@/views/about/index.vue"),
 				meta: {
 					title: "关于",
 					icon: "Setting",
 				},
 			},
-			
+			{
+				path: "/flow",
+				name: "flow",
+				component: () => import("@/views/flow/index.vue"),
+				meta: {
+					title: "流程",
+					icon: "Connection",
+				},
+			},
 		],
 	},
 	{
 		path: "/404",
 		name: "404",
-		component:LayOut,
+		component: LayOut,
 		meta: {
 			title: "404",
 			icon: "Warning",
@@ -51,9 +58,9 @@ export const allowRouter: Array<IMenubar> = [
 				meta: {
 					title: "404",
 					icon: "Warning",
-				},	
-			}
-		]
+				},
+			},
+		],
 	},
 	{
 		path: "/login",
@@ -63,33 +70,32 @@ export const allowRouter: Array<IMenubar> = [
 			title: "login",
 			icon: "",
 		},
-		
 	},
 	{
 		path: "/scene",
 		name: "scene",
-		component:LayOut,
+		component: LayOut,
 		meta: {
 			title: "菜单",
 			icon: "Setting",
 		},
 		children: [
 			{
-		path: "/scene",
-		name: "scene",
-		component: () =>import("@/views/scene/scene.vue"),
-		meta: {
-			title: "菜单",
-			icon: "Setting",
-		},
-			}
-		]
+				path: "/scene",
+				name: "scene",
+				component: () => import("@/views/scene/scene.vue"),
+				meta: {
+					title: "菜单",
+					icon: "Setting",
+				},
+			},
+		],
 	},
 ];
 
 const router = createRouter({
 	history: createMemoryHistory(),
-	routes: allowRouter as RouteRecordRaw[]
+	routes: allowRouter as RouteRecordRaw[],
 });
 
 export default router;

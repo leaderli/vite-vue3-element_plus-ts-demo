@@ -47,9 +47,20 @@ export default defineConfig(({ command, mode }) => {
 		//设置项目文件路径，以项目根目录文起点
 		resolve: {
 			//设置项目文件路径的别名
-			alias: {
-				"@": path.resolve(__dirname, "./src"),
-			},
+			alias: [
+				{
+					find: "@",
+					replacement: path.resolve(__dirname, "./src"),
+				},
+				{
+					find: "@antv/x6",
+					replacement: "@antv/x6/lib",
+				},
+				{
+					find: "@antv/x6-vue-shape",
+					replacement: "@antv/x6-vue-shape/lib",
+				},
+			],
 		},
 		css: {
 			preprocessorOptions: {
