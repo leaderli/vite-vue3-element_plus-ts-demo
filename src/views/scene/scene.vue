@@ -53,11 +53,11 @@
     </div>
     <!-- 表格部分 -->
     <div>
-        <el-table>
-           <el-table-clumn></el-table-clumn>
-           <el-table-clumn></el-table-clumn>
-           <el-table-clumn></el-table-clumn>
-           <el-table-clumn></el-table-clumn>
+        <el-table border >
+           <el-table-clumn label="ID" >1</el-table-clumn>
+           <el-table-clumn label="Name" >2</el-table-clumn>
+           <el-table-clumn label="Description" >3</el-table-clumn>
+           <el-table-clumn label="gender">4</el-table-clumn>
         </el-table>
     </div>
 

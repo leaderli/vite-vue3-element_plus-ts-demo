@@ -14,6 +14,7 @@ import { ref,watch, onMounted}from 'vue'
 import defineTabs from '@/store/modules/tabs';
 import {Tab}from '@/type/tabs'
 import { useRouter,useRoute } from "vue-router";
+import cookies from "@/util/cookie"
 const router = useRouter();
 const route = useRoute();
 const tablist = defineTabs()
@@ -55,9 +56,9 @@ watch(()=>route.path,()=>{
 // 解决刷新数据丢失的问题
 const beforeRefresh=()=>{
   window.addEventListener('beforeunload',()=>{
-    sessionStorage.setItem('tabsView',JSON.stringify(tablist.tabs))
+    cookies.set('tabsView',JSON.stringify(tablist.tabs))
   })
-  let tabSesson=sessionStorage.getItem('tabsView')
+  let tabSesson=cookies.get('tabsView')
   if(tabSesson){
     let oldtabs=JSON.parse(tabSesson)
     if(oldtabs.length>0){
