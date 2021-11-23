@@ -1,5 +1,6 @@
 // 选项卡的数据类型
 
+
 import { createPinia, defineStore } from 'pinia'
 import { Tabs } from '@/type/tabs'
 

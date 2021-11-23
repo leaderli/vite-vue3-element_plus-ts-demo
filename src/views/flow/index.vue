@@ -7,6 +7,8 @@
 import { Graph } from '@antv/x6'
 import { onMounted } from 'vue'
 
+
+
 onMounted(() => {
     const graph = new Graph({
         // container: getElementById('container') ,
