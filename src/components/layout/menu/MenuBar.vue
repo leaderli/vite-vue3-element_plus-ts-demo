@@ -4,7 +4,6 @@
     :default-active="activeIdex"
     class="el-menu-vertical-demo"
     :collapse="siderBar.collapse"
-   
     router
   >
     <MenuItem :menuList="menuList"></MenuItem>
@@ -69,6 +68,9 @@ const siderBar = defineSiderBar();
 }
 /* 鼠标移动菜单的颜色 */
 :deep(.el-menu-item:hover) {
+  background-color: #001528 !important;
+}
+:deep(.el-popper:hover){
   background-color: #001528 !important;
 }
 :deep(.el-sub-menu__title:hover) {
