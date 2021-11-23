@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div class="app-container documentation-container">
         <flow></flow>
         <div id="container" />
@@ -8,20 +8,23 @@
 <script setup lang="ts">
 console.log('----------------------------');
 
-import { Graph } from '@antv/x6'
-import '@antv/x6-vue-shape'
-import flow from '@/components/flow/flow.vue'
-
 import { onMounted, provide } from 'vue';
+import { Graph } from '@antv/x6'
 // import { ToolsView } from "/node_modules/@antv/x6/src/view/tool.ts";
 
 // console.log(ToolsView);
 
-provide('node', 'test1')
+// provide('node', 'test1')
 
 
 
+console.log('--------------------before');
 
+import '@antv/x6-vue3-shape'
+// require('@antv/x6-vue-shape')
+console.log('--------------------after');
+
+import flow from '@/components/flow/flow.vue'
 
 
 console.log('----------------------------------------');
@@ -103,7 +106,7 @@ const init = function (container: HTMLElement) {
     graph.fromJSON(data)
 
     graph.addNode({
-        shape: 'vue-shape',
+        shape: 'vue3-shape',
         width: 200,
         height: 200,
         x: 100,
@@ -115,25 +118,11 @@ const init = function (container: HTMLElement) {
                 stroke: 'red',
             }
         },
-        component: {
-            template: `<flow :num="num" @add="add()"></flow>`,
-            data() {
-                return data1
-            },
-            methods: {
-                add: () => {
-                    data1.num += 1
-                }
-            },
-            provide: {
-                node: 'test2'
-            },
-            components: {
-                flow,
-            }
-        }
+       
     });
 }
+
+
 
 
 onMounted(() => {
@@ -165,67 +154,4 @@ onMounted(() => {
 }
 </style>
 
- -->
 
-
-
-<template>
-    <div>
-        <div id="container"></div>
-    </div>
-</template>
-
-<script lang="ts" setup>
-import { Graph } from "@antv/x6";
-import "@antv/x6-vue-shape";
-import Count from "@/components/flow/flow.vue";
-import { onMounted } from 'vue';
-
-let graph = null;
-onMounted(() => {
-    graph = new Graph({
-        container: document.getElementById("container") as HTMLElement,
-        width: 600,
-        height: 400,
-        grid: true,
-    });
-
-    // 注册 vue component
-    // 如果需要序列化/反序列化数据，必须使用该方式
-    Graph.registerVueComponent(
-        "count",
-        {
-            template: `<Count />`,
-            components: {
-                Count,
-            },
-        },
-        true
-    );
-
-    graph.addNode({
-        id: "1",
-        shape: "vue-shape",
-        x: 200,
-        y: 150,
-        width: 150,
-        height: 100,
-        component: "count",
-        data: {
-            num: 0,
-        },
-    });
-})
-
-</script>
-
-<style>
-#container {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-</style>
