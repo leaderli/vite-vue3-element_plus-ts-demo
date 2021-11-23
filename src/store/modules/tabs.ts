@@ -1,4 +1,5 @@
 // 选项卡的数据类型
+
 import { createPinia, defineStore } from "pinia";
 import { Tabs } from "@/type/tabs";
 
@@ -12,8 +13,6 @@ export default defineStore("tabs", {
 			if (this.tabs.filter((tab) => tab.path === path).length === 0) {
 				this.tabs.push({ index: this.tabs.length, path, title });
 			}
-
-			console.log(this.tabs);
 		},
 
 		// removeTab(index: number) {
@@ -25,6 +24,6 @@ export default defineStore("tabs", {
 		// 	}
 		// 	console.log("after", index, this.tabs.length);
 		// },
-		
+
 	},
 });

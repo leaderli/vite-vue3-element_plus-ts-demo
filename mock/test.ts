@@ -5,7 +5,7 @@ export default [
 	{
 		url: "/api/get",
 		method: "get",
-		response: ({ query }) => {
+		response: () => {
 			return {
 				code: 0,
 				data: {
