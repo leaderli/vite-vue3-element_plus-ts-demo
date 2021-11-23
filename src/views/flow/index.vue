@@ -3,73 +3,109 @@
 </template>
 
 
-<script lang="ts">
+<script setup lang="ts">
 import { Graph } from "@antv/x6";
-import "@antv/x6-vue3-shape";
-import Router from "@/components/flow/Graph.vue";
-// import Count from "./components/Count";
+import {  onMounted } from 'vue'
 
-export default {
-  name: "container",
-  data() {
-    return {
-      nodeData: {
-        num: 0,
+import  {getElementById} from '@/util/html'
+
+
+
+
+
+
+onMounted(() => {
+  const graph = new Graph({
+    // container: getElementById('container') ,
+    container:document.getElementById('container')!,
+
+    width: 1000,
+    height: 500,
+    background: {
+      color: 'rgba(184,180,180,0.2)' // 设置画布背景颜色
+    },
+    grid: {
+      size: 10, // 网格大小 10px
+      visible: true // 渲染网格背景
+    }
+  })
+  const data = {
+    // 节点
+    nodes: [
+      {
+        id: 'node1', // String，可选，节点的唯一标识
+        x: 40, // Number，必选，节点位置的 x 值
+        y: 40, // Number，必选，节点位置的 y 值
+        width: 80, // Number，可选，节点大小的 width 值
+        height: 40, // Number，可选，节点大小的 height 值
+        label: '普线' // String，节点标签
       },
-    };
-  },
-  mounted() {
-    const self = this;
-    const graph = new Graph({
-      container: document.getElementById("container") as any,
-      width: 600,
-      height: 400,
-      grid: true,
-    });
+      {
+        id: 'node2', // String，节点的唯一标识
+        x: 160, // Number，必选，节点位置的 x 值
+        y: 80, // Number，必选，节点位置的 y 值
+        width: 80, // Number，可选，节点大小的 width 值
+        height: 40, // Number，可选，节点大小的 height 值
+        label: '夜间' // String，节点标签
+      },
+      {
+        id: 'node3', // String，节点的唯一标识
+        x: 160, // Number，必选，节点位置的 x 值
+        y: 180, // Number，必选，节点位置的 y 值
+        width: 80, // Number，可选，节点大小的 width 值
+        height: 40, // Number，可选，节点大小的 height 值
+        attrs: {
+          body: {
+            fill: '#fbca00',
+            stroke: '#000',
+            strokeDasharray: '10,2'
+          },
+          label: {
+            text: '白金',
+            fill: '#333',
+            fontSize: 13
+          }
+        }
+      }
+    ],
+    // 边
+    edges: [
+      {
+        source: 'node1', // String，必须，起始节点 id
+        target: 'node2' // String，必须，目标节点 id
+      },
+      {
+        source: 'node1', // String，必须，起始节点 id
+        target: 'node3' // String，必须，目标节点 id
+      }
+    ]
+  }
+  graph.fromJSON(data)
+})
 
-    // Graph.registerVueComponent(
-    //   "router-component",
-    //   {
-    //     template: `<router :num="num" @add="add"></router>`,
-    //     data() {
-    //       return self.nodeData;
-    //     },
-    //     methods: {
-    //       add(step) {
-    //         self.nodeData.num += step;
-    //       },
-    //     },
-    //     components: {
-    //       Router,
-    //     },
-    //   },
-    //   true
-    // );
-
-    graph.addNode({
-      shape: "vue3-shape",
-      x: 100,
-      y: 100,
-      width: 150,
-      height: 100,
-      component: Router,
-      // attrs: {
-      //   body: {
-      //     stroke: "#ebebeb",
-      //   },
-      // },
-    });
-  },
-};
 </script>
 
-<style>
-#container{
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+.documentation-container {
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .document-btn {
+    flex-shrink: 0;
+    display: block;
+    cursor: pointer;
+    background: black;
+    color: white;
+    height: 60px;
+    padding: 0 16px;
+    margin: 16px;
+    line-height: 60px;
+    font-size: 20px;
+    text-align: center;
+  }
 }
 </style>
+
+
