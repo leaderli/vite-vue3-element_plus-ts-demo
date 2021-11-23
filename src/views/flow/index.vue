@@ -1,6 +1,5 @@
 <template>
     <div class="app-container documentation-container">
-        <button @click="init">click</button>
         <div id="container" />
     </div>
 </template>
@@ -130,19 +129,57 @@ console.log('----------------------------------------');
 
 
 
-</script>
-<script lang="ts">
 var init = () => {
     console.log('hello');
     const container = document.getElementById('container')
     console.log(container);
     const graph = new Graph({
         container: container as HTMLElement,
-        grid: true
+        width: 1000,
+        height: 500,
+        background: {
+            color: 'rgba(184,180,180,0.2)' // 设置画布背景颜色
+        },
+        grid: {
+            size: 10, // 网格大小 10px
+            visible: true // 渲染网格背景
+        }
+    })
+    // 从 node_modules 引入
+    // 从 CND 引入时，我们暴露了 X6 这个全局变量
+    // const { Graph } = X6
+
+    // 创建 Graph 的实例
+
+    // 渲染源节点
+    const source = graph.addNode({
+        x: 300,
+        y: 40,
+        width: 80,
+        height: 40,
+        label: 'Hello',
+    })
+
+    // 渲染目标节点
+    const target = graph.addNode({
+        x: 420,
+        y: 180,
+        width: 80,
+        height: 40,
+        label: 'World',
+    })
+
+    // 渲染边
+    graph.addEdge({
+        source,
+        target,
     })
 
 
 }
+onMounted(()=>{
+    init()
+})
 </script>
 
 <style lang="scss" scoped>
