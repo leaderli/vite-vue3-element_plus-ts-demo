@@ -20,7 +20,7 @@
         <el-menu-item
             v-else
             style='color: #f4f4f5;'
-            :index='menu.path'
+            :index='menu.name'
             @click='openTab(menu)'
         >
             <component
@@ -41,7 +41,7 @@ const tabs = defineTabs()
 defineProps({
     menuList: {
         type: Object as PropType<Array<IMenubar>>,
-        default: function() {return []}
+        default: function() { return [] }
     }
 })
 
