@@ -25,15 +25,15 @@
     </el-row>
 </template>
 <script setup lang='ts'>
-import Collapse from '@/components/layout/header/Collapse.vue'
-import Tabs from '@/components/layout/tabs/Tabs.vue'
-import { useRouter } from 'vue-router'
-import cookies from '@/util/cookie'
-const router = useRouter()
+import Collapse from '@/components/layout/header/Collapse.vue';
+import Tabs from '@/components/layout/tabs/Tabs.vue';
+import { useRouter } from 'vue-router';
+import cookies from '@/util/cookie';
+const router = useRouter();
 const signOut = () => {
-    router.push('/logo')
-    cookies.remove('ms_username')
-}
+    router.push('/logo');
+    cookies.remove('ms_username');
+};
 </script>
 <style scoped lang='scss'>
     .dropdown{

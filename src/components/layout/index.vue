@@ -17,8 +17,8 @@
     </el-container>
 </template>
 <script setup lang="ts">
-import Header from '@/components/layout/header/index.vue'
-import MenuBar from '@/components/layout/menu/MenuBar.vue'
+import Header from '@/components/layout/header/index.vue';
+import MenuBar from '@/components/layout/menu/MenuBar.vue';
 
 </script>
 <style scoped lang="scss">

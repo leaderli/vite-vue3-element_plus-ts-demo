@@ -1,6 +1,6 @@
-import { Router,createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
-import { IMenubar } from '@/type/layout'
-import LayOut from '@/components/layout/index.vue'
+import { Router,createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router';
+import { IMenubar } from '@/type/layout';
+import LayOut from '@/components/layout/index.vue';
 
 export const allowRouter: Array<IMenubar> = [
     {
@@ -91,11 +91,11 @@ export const allowRouter: Array<IMenubar> = [
             }
         ]
     }
-]
+];
 
 const router:Router = createRouter({
     history: createMemoryHistory(),
     routes: allowRouter as RouteRecordRaw[]
-})
+});
 
-export default router
+export default router;

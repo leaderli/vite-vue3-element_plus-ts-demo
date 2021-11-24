@@ -1,4 +1,4 @@
-import { DefineComponent } from 'vue'
+import { DefineComponent } from 'vue';
 
 type define_component = DefineComponent<unknown, unknown, any>; // eslint-disable-line
 type typeOf_import_vue = Promise<typeof import('*.vue')>;

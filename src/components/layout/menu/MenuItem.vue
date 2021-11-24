@@ -32,22 +32,22 @@
     </template>
 </template>
 <script setup lang="ts">
-import { PropType } from 'vue'
+import { PropType,defineProps } from 'vue';
 
-import { IMenubar } from '@/type/layout'
-import defineTabs from '@/store/modules/tabs'
+import { IMenubar } from '@/type/layout';
+import defineTabs from '@/store/modules/tabs';
 
-const tabs = defineTabs()
+const tabs = defineTabs();
 defineProps({
     menuList: {
         type: Object as PropType<Array<IMenubar>>,
-        default: function() { return [] }
+        default: function() { return []; }
     }
-})
+});
 
 const openTab = function(menuBar: IMenubar) {
-    tabs.addTab(menuBar.path, menuBar.name)
-}
+    tabs.addTab(menuBar.path, menuBar.name);
+};
 </script>
 <style scoped lang="scss">
 .icons {

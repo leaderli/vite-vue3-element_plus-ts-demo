@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-import { viteMockServe } from 'vite-plugin-mock'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
+import { viteMockServe } from 'vite-plugin-mock';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -69,5 +69,5 @@ export default defineConfig(({ command }) => {
                 }
             }
         }
-    }
-})
+    };
+});

@@ -1,17 +1,17 @@
-import { shallowRef, ref, onMounted } from 'vue'
-import { Graph } from '@antv/x6'
-import Comp from './Comp.vue'
+import { shallowRef, ref, onMounted } from 'vue';
+import { Graph } from '@antv/x6';
+import Comp from './Comp.vue';
 
 export default function useGraph() {
   
-    const container = ref<HTMLElement | null>(null)
-    const graph = shallowRef<Graph | null>()
+    const container = ref<HTMLElement | null>(null);
+    const graph = shallowRef<Graph | null>();
     onMounted(() => {
         if (container.value) {
             graph.value = new Graph({
                 container: container.value,
                 panning: true
-            })
+            });
             graph.value.addNode({
                 id: 'node1',
                 x: 40,
@@ -25,11 +25,11 @@ export default function useGraph() {
                 // 3. component: () => <Comp />
                 // 4. component: 'text node'
                 component: Comp
-            })
+            });
         }
-    })
+    });
     return {
         container,
         graph
-    }
+    };
 }

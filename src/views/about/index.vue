@@ -4,10 +4,10 @@
 </template>
 
 <script setup lang="ts">
-import { defineUser } from '@/store/modules/user'
+import { defineUser } from '@/store/modules/user';
 
 
-const user = defineUser()
+const user = defineUser();
 
 
 </script>

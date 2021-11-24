@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue';
 // import { useStore } from "vuex";
-import { useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
-import cookies from '@/util/cookie'
-const router = useRouter()
+import { useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus';
+import cookies from '@/util/cookie';
+const router = useRouter();
 const param = reactive({
     username: 'admin',
     password: '123123'
-})
+});
 
 const rules = {
     username: [
@@ -19,22 +19,22 @@ const rules = {
         }
     ],
     password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
-}
-const login = ref(null)
+};
+const login = ref(null);
 const submitForm = () => {
-    router.push('/')
-    let millisecond = new Date().getTime()
-    let expiresTime = new Date(millisecond + 60 * 1000 * 15)
-    cookies.set('ms_username', param.username,expiresTime)
-    ElMessage.success('登录成功')
+    router.push('/');
+    let millisecond = new Date().getTime();
+    let expiresTime = new Date(millisecond + 60 * 1000 * 15);
+    cookies.set('ms_username', param.username,expiresTime);
+    ElMessage.success('登录成功');
     
-}
+};
 
 onMounted(() => {
     // let my_cookie_value = cookies.get('myCoookie')
     // cookies.set('myCoookie', 'abcdefg')
     // my_cookie_value = cookies.get('myCoookie')
-})
+});
 </script>
 
 <template>

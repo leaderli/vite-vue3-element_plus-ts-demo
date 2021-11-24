@@ -7,9 +7,9 @@
     </el-icon>
 </template>
 <script setup lang='ts'>
-import { defineSiderBar } from '@/store/modules/layout'
-import { Fold, Expand } from '@element-plus/icons'
-const siderBar = defineSiderBar()
+import { defineSiderBar } from '@/store/modules/layout';
+import { Fold, Expand } from '@element-plus/icons';
+const siderBar = defineSiderBar();
 </script>
 <style scoped lang='scss'>
 .fn-icon {

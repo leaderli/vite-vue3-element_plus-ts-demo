@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
-import { User } from '@/type/user'
+import { User } from '@/type/user';
 
 export const defineUser = defineStore({
     id: 'user',
@@ -10,4 +10,4 @@ export const defineUser = defineStore({
     }),
     getters: {},
     actions: {}
-})
+});

@@ -1,22 +1,26 @@
 <template>
-  <MenuLogo class="layout-logo" v-if="!siderBar.collapse"></MenuLogo>
-  <el-menu
-    class="el-menu-vertical-demo"
-    :collapse="siderBar.collapse"
-    background-color='#1f2d3d'
-    router
-  >
-    <MenuItem :menuList="menuList"></MenuItem>
-  </el-menu>
+    <MenuLogo
+        v-if='!siderBar.collapse'
+        class='layout-logo'
+    />
+    <el-menu
+        class='el-menu-vertical-demo'
+        :collapse='siderBar.collapse'
+        background-color='#1f2d3d'
+        router
+    >
+        <MenuItem :menu-list='menuList' />
+    </el-menu>
 </template>
 
 <script setup lang="ts">
-import { defineSiderBar } from '@/store/modules/layout'
-import MenuItem from '@/components/layout/menu/MenuItem.vue'
-import MenuLogo from '@/components/layout/menu/MenuLogo.vue'
-import { allowRouter as menuList } from '@/router'
+import { defineSiderBar } from '@/store/modules/layout';
+import MenuItem from '@/components/layout/menu/MenuItem.vue';
+import MenuLogo from '@/components/layout/menu/MenuLogo.vue';
+import { allowRouter as menuList } from '@/router';
 
-const siderBar = defineSiderBar()
+
+const siderBar = defineSiderBar();
 </script>
 
 <style scoped>

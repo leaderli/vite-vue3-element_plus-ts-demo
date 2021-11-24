@@ -4,8 +4,8 @@
 
 
 <script setup lang="ts">
-import { Graph } from '@antv/x6'
-import { onMounted } from 'vue'
+import { Graph } from '@antv/x6';
+import { onMounted } from 'vue';
 
 
 
@@ -23,7 +23,7 @@ onMounted(() => {
             size: 10, // 网格大小 10px
             visible: true // 渲染网格背景
         }
-    })
+    });
     const data = {
         // 节点
         nodes: [
@@ -74,9 +74,9 @@ onMounted(() => {
                 target: 'node3' // String，必须，目标节点 id
             }
         ]
-    }
-    graph.fromJSON(data)
-})
+    };
+    graph.fromJSON(data);
+});
 
 </script>
 

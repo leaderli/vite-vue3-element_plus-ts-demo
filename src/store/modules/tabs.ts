@@ -1,49 +1,55 @@
+import _ from 'lodash';
 // 选项卡的数据类型
-import { createPinia, defineStore } from "pinia";
-import { Tab,Tabs } from "@/type/tabs";
-import { useRouter } from 'vue-router'
-const router=useRouter()
-export const pinia = createPinia();
-export default defineStore("tabs", {
-	state: (): Tabs => ({
-		tabs: [],
-		activeTab:''
-	}),
-	actions: {
-		addTab(path: string, title: string) {
-			// if (this.tabs.some(tab => tab.path === path)) return
-			// this.tabs.push({ index: this.tabs.length, path, title})
-			console.log(this.tabs);
-			
-			if (this.tabs.filter((tab) => tab.path === path).length === 0) {
-				this.tabs.push({ index: this.tabs.length, path, title });
-			}
+import { defineStore } from 'pinia';
+import { Tab,Tabs } from '@/type/tabs';
+// import moduleName from '@/r';
+// const router = useRouter()
+export default defineStore('tabs', {
+    state: (): Tabs => ({
+        tabs: [],
+        activeTab:''
+       
+    }),
+    // getters:{
+    //     tabs:(state:Tabs) => {
+    //         console.log('state tabs',state.tabs);
+    //         if(state.tabs === undefined) {
+    //             state.tabs = [];
+    //         }
+    //         state.tabs = [{}];
 
-		},	
-			removeTab(targetName: string) {
-						if (targetName === '/home') return
-						// 选项卡的数据列表
-						const tablist: Array<Tab> = this.tabs
-						// 当前激活的选项卡
-						let activeName = this.activeTab
-						if (activeName === targetName) {
-							tablist.forEach((tab: Tab, index: number) => {
-								if (tab.path === targetName) {
-									const nextTab = tablist[index + 1] || tablist[index - 1]
-									if (nextTab) {
-										activeName = nextTab.path
-									}
-								}
-							})
-						}
-						// 重新设置当前激活的选项卡
-						this.activeTab = activeName
-						// 重新设置选项卡数据
-						this.tabs = tablist.filter((tab: Tab) => tab.path !== targetName)
+    //         console.log('state tabs',state.tabs);
+            
+            
+    //         return state.tabs;
+    //     }
+    // },
+    actions: {
+        addTab(path: string, title: string) {
 
-						router.push({ path: activeName })
-					
-					},
+            let index = _.findIndex(this.tabs,tab => tab.path === path);
+            console.log('add tab',index,path,title,this.activeTab);
+            
+            if (index == -1) {
+                index = this.tabs.length;
+                this.tabs.push({ index, path, title });
+            }
+            this.activeTab = path;
+            console.log('add tab 2',index,path,title,this.activeTab);
+            
+
+        },	
+        removeTab(path: string) {
+
+            const compare = tab => tab.path === path;
+            const index = _.findIndex(this.tabs,compare);
+            _.remove(this.tabs,compare);
+            // 如果删除的是被激活的tag，激活删除节点前一个tag
+            if(this.activeTab === path && index > 0) {
+                this.activeTab = this.tabs[index - 1].path;
+            }
+            
+        }
 		
-				}
-			})
+    }
+});

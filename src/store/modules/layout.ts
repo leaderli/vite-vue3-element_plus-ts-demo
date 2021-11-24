@@ -1,7 +1,7 @@
 
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
-import { SiderBar } from '@/type/layout'
+import { SiderBar } from '@/type/layout';
 
 
 export const defineSiderBar = defineStore('main',{
@@ -10,7 +10,7 @@ export const defineSiderBar = defineStore('main',{
     }),
     actions: {
         toggleCollapse() {
-            this.collapse = !this.collapse
+            this.collapse = !this.collapse;
         }
     }
-})
+});

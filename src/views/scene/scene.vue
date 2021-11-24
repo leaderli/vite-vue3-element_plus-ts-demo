@@ -93,17 +93,17 @@
                         </el-form-item>
                     </el-col>
                 </el-row>
-        </el-form>
-    </div>
-    <!-- 表格部分 -->
-    <div>
-        <el-table  >
-           <el-table-clumn label="ID" >1</el-table-clumn>
-           <el-table-clumn label="Name" >2</el-table-clumn>
-           <el-table-clumn label="Description" >3</el-table-clumn>
-           <el-table-clumn label="gender">4</el-table-clumn>
-        </el-table>
-    </div>
+            </el-form>
+        </div>
+        <!-- 表格部分 -->
+        <div>
+            <el-table>
+                <el-table-clumn label='ID'>1</el-table-clumn>
+                <el-table-clumn label='Name'>2</el-table-clumn>
+                <el-table-clumn label='Description'>3</el-table-clumn>
+                <el-table-clumn label='gender'>4</el-table-clumn>
+            </el-table>
+        </div>
     </div>
 </template>
 <script setup lang='ts'>
