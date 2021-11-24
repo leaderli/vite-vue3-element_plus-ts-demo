@@ -10,7 +10,9 @@ module.exports = {
     },
     env: {
         browser: true,
-        node: true
+        node: true,
+        'vue/setup-compiler-macros': true
+
     },
     plugins: ['@typescript-eslint'],
     extends: [
@@ -68,6 +70,8 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         'vue/multi-word-component-names': 'off',
         'prettier/prettier': 'off',
-        'no-undef':'error'
+        'no-undef':'error',
+        'vue/script-setup-uses-vars': 'error'
+
     }
 };

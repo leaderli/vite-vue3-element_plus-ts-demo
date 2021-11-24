@@ -39,7 +39,7 @@ export default defineStore('tabs', {
         },	
         removeTab(path: string) {
 
-            const compare = tab => tab.path === path;
+            const compare = (tab :Tab) => tab.path === path;
             const index = _.findIndex(this.tabs,compare);
             _.remove(this.tabs,compare);
             // 如果删除的是被激活的tag，激活删除节点前一个tag
