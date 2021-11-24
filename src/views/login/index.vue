@@ -1,69 +1,86 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted } from 'vue'
 // import { useStore } from "vuex";
-import { useRouter } from "vue-router";
-import { ElMessage } from "element-plus";
-import cookies from "@/util/cookie"
-const router = useRouter();
+import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
+import cookies from '@/util/cookie'
+const router = useRouter()
 const param = reactive({
-    username: "admin",
-    password: "123123",
-});
+    username: 'admin',
+    password: '123123'
+})
 
 const rules = {
     username: [
         {
             required: true,
-            message: "请输入用户名",
-            trigger: "blur",
-        },
+            message: '请输入用户名',
+            trigger: 'blur'
+        }
     ],
-    password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-};
-const login = ref(null);
+    password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+}
+const login = ref(null)
 const submitForm = () => {
-    router.push("/");
-    var millisecond = new Date().getTime();
-    var expiresTime = new Date(millisecond + 60 * 1000 * 15 );
-    cookies.set("ms_username", param.username,expiresTime)
-    ElMessage.success("登录成功");
+    router.push('/')
+    let millisecond = new Date().getTime()
+    let expiresTime = new Date(millisecond + 60 * 1000 * 15)
+    cookies.set('ms_username', param.username,expiresTime)
+    ElMessage.success('登录成功')
     
-};
+}
 
 onMounted(() => {
-    let my_cookie_value = cookies.get("myCoookie");
-    cookies.set("myCoookie", "abcdefg");
-    my_cookie_value = cookies.get("myCoookie");
+    // let my_cookie_value = cookies.get('myCoookie')
+    // cookies.set('myCoookie', 'abcdefg')
+    // my_cookie_value = cookies.get('myCoookie')
 })
 </script>
 
 <template>
-    <div class="btn">
-        <div class="ms-login">
-            <div class="ms-title">后台管理系统</div>
-            <el-form :model="param" :rules="rules" ref="login" class="ms-form">
-                <el-form-item prop="username">
-                    <el-input v-model="param.username" placeholder="username">
-                        <template #prepend>
-                            <el-button icon="el-icon-user"></el-button>
-                        </template>
-                    </el-input>
-                </el-form-item>
-                <el-form-item prop="password">
+    <div class='btn'>
+        <div class='ms-login'>
+            <div class='ms-title'>
+                后台管理系统
+            </div>
+            <el-form
+                ref='login'
+                :model='param'
+                :rules='rules'
+                class='ms-form'
+            >
+                <el-form-item prop='username'>
                     <el-input
-                        type="password"
-                        placeholder="password"
-                        v-model="param.password"
+                        v-model='param.username'
+                        placeholder='username'
                     >
                         <template #prepend>
-                            <el-button icon="el-icon-lock"></el-button>
+                            <el-button icon='el-icon-user' />
                         </template>
                     </el-input>
                 </el-form-item>
-                <div class="login-btn">
-                    <el-button type="primary" @click="submitForm()">登录</el-button>
+                <el-form-item prop='password'>
+                    <el-input
+                        v-model='param.password'
+                        type='password'
+                        placeholder='password'
+                    >
+                        <template #prepend>
+                            <el-button icon='el-icon-lock' />
+                        </template>
+                    </el-input>
+                </el-form-item>
+                <div class='login-btn'>
+                    <el-button
+                        type='primary'
+                        @click='submitForm()'
+                    >
+                        登录
+                    </el-button>
                 </div>
-                <p class="login-tips">Tips : 用户名和密码随便填。</p>
+                <p class='login-tips'>
+                    Tips : 用户名和密码随便填。
+                </p>
             </el-form>
         </div>
     </div>

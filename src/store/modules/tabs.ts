@@ -19,33 +19,31 @@ export default defineStore("tabs", {
 				this.tabs.push({ index: this.tabs.length, path, title });
 			}
 
-			console.log(this.tabs);
-		},
-
-		removeTab(targetName:string) {
-			 if(targetName==='/home')return
-			// 选项卡的数据列表
-			const tablist:Array<Tab> =this.tabs
-			// 当前激活的选项卡
-				let activeName = this.activeTab
-				if (activeName === targetName) {
-					tablist.forEach((tab:Tab, index:number) => {
-					if (tab.path === targetName) {
-						const nextTab = tablist[index + 1] || tablist[index - 1]
-						if (nextTab) {
-						activeName = nextTab.path
+		},	
+			removeTab(targetName: string) {
+						if (targetName === '/home') return
+						// 选项卡的数据列表
+						const tablist: Array<Tab> = this.tabs
+						// 当前激活的选项卡
+						let activeName = this.activeTab
+						if (activeName === targetName) {
+							tablist.forEach((tab: Tab, index: number) => {
+								if (tab.path === targetName) {
+									const nextTab = tablist[index + 1] || tablist[index - 1]
+									if (nextTab) {
+										activeName = nextTab.path
+									}
+								}
+							})
 						}
-					}
-					})
-				}
-			// 重新设置当前激活的选项卡
-				this.activeTab= activeName
-				// 重新设置选项卡数据
-				this.tabs= tablist.filter((tab:Tab) => tab.path !== targetName)
+						// 重新设置当前激活的选项卡
+						this.activeTab = activeName
+						// 重新设置选项卡数据
+						this.tabs = tablist.filter((tab: Tab) => tab.path !== targetName)
 
-				router.push({path :activeName})
+						router.push({ path: activeName })
 					
-		},
+					},
 		
-	},
-});
+				}
+			})

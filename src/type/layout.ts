@@ -1,12 +1,12 @@
-import { DefineComponent } from "vue";
+import { DefineComponent } from 'vue'
 
-type define_component = DefineComponent<{}, {}, any>;
-type typeOf_import_vue = Promise<typeof import("*.vue")>;
+type define_component = DefineComponent<unknown, unknown, any>; // eslint-disable-line
+type typeOf_import_vue = Promise<typeof import('*.vue')>;
 type func_typeOf_import_vue = () => typeOf_import_vue;
 type component = define_component | typeOf_import_vue | func_typeOf_import_vue;
 
 export interface SiderBar {
-	collapse: Boolean;
+	collapse: boolean;
 }
 
 export interface IMenubar {

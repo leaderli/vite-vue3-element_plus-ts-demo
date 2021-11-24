@@ -4,13 +4,16 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc --noEmit --skipLibCheck && vite build",
-		"serve": "vite preview"
+		"serve": "vite preview",
+		"lint": "eslint  . --ext .ts,.vue",
+		"lint-fix": "eslint . --fix --ext .ts,.vue"
 	},
 	"dependencies": {
 		"@antv/x6": "^1.28.1",
-		"@antv/x6-vue3-shape": "^1.0.0",
 		"@element-plus/icons": "0.0.11",
+		"@types/lodash": "^4.14.177",
 		"axios": "^0.24.0",
+		"echarts": "^5.2.2",
 		"element-plus": "^1.2.0-beta.3",
 		"mockjs": "^1.1.0",
 		"moment": "^2.29.1",
@@ -23,7 +26,13 @@
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.7",
+		"@typescript-eslint/eslint-plugin": "^5.4.0",
+		"@typescript-eslint/parser": "^5.4.0",
 		"@vitejs/plugin-vue": "^1.9.4",
+		"eslint": "^8.3.0",
+		"eslint-plugin-vue": "^8.1.1",
+		"stylelint": "^14.1.0",
+		"stylelint-config-standard": "^24.0.0",
 		"typescript": "^4.4.3",
 		"vite": "^2.6.14",
 		"vite-plugin-mock": "^2.9.6",

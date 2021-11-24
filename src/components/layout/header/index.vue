@@ -1,37 +1,38 @@
 <template>
-        <el-row style="width: -webkit-fill-available;">
-            <el-col :span='2'>
-                <Collapse ></Collapse>
-            </el-col >
-            <el-col :span='20'>
-                <Tabs class="tablist"></Tabs>
-            </el-col>
-            <el-col :span='2'>
-                <div class="dropdown">
-                    <el-dropdown>
-                        <img src="@/assets/img/img.jpg" >
-                        <template #dropdown>
+    <el-row style='width: -webkit-fill-available;'>
+        <el-col :span='2'>
+            <Collapse />
+        </el-col>
+        <el-col :span='20'>
+            <Tabs class='tablist' />
+        </el-col>
+        <el-col :span='2'>
+            <div class='dropdown'>
+                <el-dropdown>
+                    <img src='@/assets/img/img.jpg'>
+                    <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item>Action 1</el-dropdown-item>
                             <el-dropdown-item>Action 2</el-dropdown-item>
-                            <el-dropdown-item @click="signOut">退出登录</el-dropdown-item>
+                            <el-dropdown-item @click='signOut'>
+                                退出登录
+                            </el-dropdown-item>
                         </el-dropdown-menu>
-                        </template>
-                    </el-dropdown>
-                </div>
-            </el-col>
-        </el-row>
+                    </template>
+                </el-dropdown>
+            </div>
+        </el-col>
+    </el-row>
 </template>
 <script setup lang='ts'>
-import { ref, reactive } from 'vue'
 import Collapse from '@/components/layout/header/Collapse.vue'
-import Tabs from '@/components/layout/tabs/Tabs.vue';
-import { useRouter } from "vue-router";
-import cookies from "@/util/cookie"
-const router = useRouter();
-const signOut=()=>{
- router.push("/logo");
-    cookies.remove("ms_username")
+import Tabs from '@/components/layout/tabs/Tabs.vue'
+import { useRouter } from 'vue-router'
+import cookies from '@/util/cookie'
+const router = useRouter()
+const signOut = () => {
+    router.push('/logo')
+    cookies.remove('ms_username')
 }
 </script>
 <style scoped lang='scss'>
