@@ -10,7 +10,7 @@
             <template #title>
                 <!-- 动态使用组件的方法 -->
                 <component
-                    :is='menu.meta.icon'
+                    :is='menu.meta.icon||"Setting"'
                     class='icons'
                 />
                 <span>{{ menu.meta.title }}</span>
@@ -24,10 +24,14 @@
             @click='openTab(menu)'
         >
             <component
-                :is='menu.meta.icon'
+                :is='menu.meta.icon||"Setting"'
                 class='icons'
             />
-            <template #title>{{ menu.meta.title }}</template>
+            <template #title>
+                <!-- 动态使用组件的方法 -->
+
+                <span>{{ menu.meta.title }}</span>
+            </template>
         </el-menu-item>
     </template>
 </template>

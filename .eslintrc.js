@@ -11,7 +11,7 @@ module.exports = {
     env: {
         browser: true,
         node: true,
-        'vue/setup-compiler-macros': true
+        'vue/setup-compiler-macros': true // 支持setup语法糖
 
     },
     plugins: ['@typescript-eslint'],
@@ -70,8 +70,8 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         'vue/multi-word-component-names': 'off',
         'prettier/prettier': 'off',
-        'no-undef':'error',
-        'vue/script-setup-uses-vars': 'error'
+        'no-undef':'error', // 未定义的变量
+        'vue/script-setup-uses-vars': 'error' // 
 
     }
 };
