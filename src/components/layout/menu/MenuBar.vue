@@ -9,7 +9,13 @@
         background-color='#1f2d3d'
         router
     >
-        <MenuItem :menu-list='menuList' />
+        <menu-item
+            v-for='item in allowRouter'
+            :key='item.path'
+            :index='item.path'
+            :menu-bar='item'
+        />
+
     </el-menu>
 </template>
 
@@ -17,7 +23,7 @@
 import { defineSiderBar } from '@/store/modules/layout';
 import MenuItem from '@/components/layout/menu/MenuItem.vue';
 import MenuLogo from '@/components/layout/menu/MenuLogo.vue';
-import { allowRouter as menuList } from '@/router';
+import { allowRouter } from '@/router';
 
 
 const siderBar = defineSiderBar();
@@ -54,6 +60,9 @@ const siderBar = defineSiderBar();
 }
 :deep(.el-menu .el-menu__item) {
     color: #a7b4c4;
+}
+:deep(.el-menu-item .el-menu-item__title) {
+    color: #f4f4f5 !important;
 }
 /* 菜单点中文字的颜色*/
 :deep(.el-menu-item.is-active) {
