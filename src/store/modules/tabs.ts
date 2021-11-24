@@ -28,14 +28,12 @@ export default defineStore('tabs', {
         addTab(path: string, title: string) {
 
             let index = _.findIndex(this.tabs,tab => tab.path === path);
-            console.log('add tab',index,path,title,this.activeTab);
             
             if (index == -1) {
                 index = this.tabs.length;
                 this.tabs.push({ index, path, title });
             }
             this.activeTab = path;
-            console.log('add tab 2',index,path,title,this.activeTab);
             
 
         },	
