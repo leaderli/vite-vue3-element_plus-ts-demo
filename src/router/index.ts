@@ -1,4 +1,4 @@
-import { createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
+import { Router,createRouter, createMemoryHistory, RouteRecordRaw } from 'vue-router'
 import { IMenubar } from '@/type/layout'
 import LayOut from '@/components/layout/index.vue'
 
@@ -54,7 +54,7 @@ export const allowRouter: Array<IMenubar> = [
             {
                 path: '/404',
                 name: '404',
-                component: () => import('@/views/404/404.vue'),
+                component: () => import('@/views/404/index.vue'),
                 meta: {
                     title: '404',
                     icon: 'Warning'
@@ -93,7 +93,7 @@ export const allowRouter: Array<IMenubar> = [
     }
 ]
 
-const router = createRouter({
+const router:Router = createRouter({
     history: createMemoryHistory(),
     routes: allowRouter as RouteRecordRaw[]
 })
