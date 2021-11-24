@@ -1,7 +1,9 @@
 <template>
-<div class="app-container">
+<h1>{{msg}}</h1>
+{{msg}}
+<itema/>
+ <!-- <div class="app-container">
     <div class="layui-ellem-quote">菜单管理</div>
-    <!-- 搜索部分 -->
     <div class="searchbtn">
          <el-form>
              <el-row>
@@ -51,21 +53,31 @@
                 </el-row>
         </el-form>
     </div>
-</div>
+</div> -->
 </template>
+
 <script setup lang='ts'>
-import { ref,reactive } from 'vue'
+
+ import itema from '@/views/home/itema.vue'
+ import {ref,reactive,provide} from 'vue'
+
+    const msg=ref('vue的provide/inject')
+    const arrs=reactive(['vue','provide','inject'])
+
+    provide('text',msg)
+    provide('text1',arrs)
+
 </script>
 <style scoped lang='scss'>
-.layui-ellem-quote{
-    margin-bottom: 10px;
-    padding: 15px;
-    line-height: 22px;
-    border-left: 5px solid #409eff;
-    border-radius: 0 2px 2px 0;
-    background-color: #f2f2f2;
-}
-.searchbtn{
-    margin: 25px;
-}
+// .layui-ellem-quote{
+//     margin-bottom: 10px;
+//     padding: 15px;
+//     line-height: 22px;
+//     border-left: 5px solid #409eff;
+//     border-radius: 0 2px 2px 0;
+//     background-color: #f2f2f2;
+// }
+// .searchbtn{
+//     margin: 25px;
+// }
 </style>

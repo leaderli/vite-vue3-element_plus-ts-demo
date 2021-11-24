@@ -4,6 +4,7 @@
     :default-active="activeIdex"
     class="el-menu-vertical-demo"
     :collapse="siderBar.collapse"
+    background-color='#1f2d3d'
     router
   >
     <MenuItem :menuList="menuList"></MenuItem>
@@ -47,7 +48,7 @@ const siderBar = defineSiderBar();
 }
 .el-menu {
   border-right: none;
-  background-color: #1f2d3d !important;
+  /* background-color: #1f2d3d !important; */
 }
 :deep(.el-sub-menu .el-sub-menu__title) {
   color: #f4f4f5 !important;
@@ -70,9 +71,9 @@ const siderBar = defineSiderBar();
 :deep(.el-menu-item:hover) {
   background-color: #001528 !important;
 }
-:deep(.el-popper:hover){
+/* :deep(.el-popper:hover){
   background-color: #001528 !important;
-}
+} */
 :deep(.el-sub-menu__title:hover) {
   background-color: #001528 !important;
 }
