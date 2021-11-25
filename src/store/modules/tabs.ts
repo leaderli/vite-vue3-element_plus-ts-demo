@@ -20,7 +20,7 @@ export default defineStore('tabs', {
             this.activeTab = path;
 
         },	
-        removeTab(path: string) {
+        removeTab(path: string):string {
 
             const compare = (tab :Tab) => tab.path === path;
             const index = _.findIndex(this.tabs,compare);
@@ -29,6 +29,7 @@ export default defineStore('tabs', {
             if (this.activeTab === path && index > 0) {
                 this.activeTab = this.tabs[index - 1].path;
             }
+            return this.activeTab;
             
         }
 		

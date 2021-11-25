@@ -39,9 +39,9 @@ const signOut = () => {
     .dropdown{
         margin-right: 30px;
         img{
-            width: 46px;
-            height: 46px;
-            border-radius: 23px;
+            width: 42px;
+            height: 42px;
+            border-radius: 21px;
             margin-top: 2px;
         }
       } 

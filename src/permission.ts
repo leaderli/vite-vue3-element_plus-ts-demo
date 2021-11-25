@@ -9,6 +9,6 @@ router.beforeEach(async(to, from, next) => {
     }
 });
 
-router.afterEach((e) => {
-    console.log(e);
+router.afterEach(() => {
+    //
 });

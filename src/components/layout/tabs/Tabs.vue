@@ -24,7 +24,7 @@ const router = useRouter();
 const route = useRoute();
 const tabBar = defineTabs();
 const tabRemove = function(targetName: string) {
-    tabBar.removeTab(targetName);
+    router.push(tabBar.removeTab(targetName));
 };
 
 
@@ -60,7 +60,7 @@ const tabClick = function(tab:any) {
 <style scoped lang='scss'>
 :deep(.el-tabs__header) {
     margin: 0;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 :deep(.el-tans__item) {
     height: 26px !important;

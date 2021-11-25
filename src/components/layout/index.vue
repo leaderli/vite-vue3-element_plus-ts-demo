@@ -28,7 +28,7 @@ import MenuBar from '@/components/layout/menu/MenuBar.vue';
         background-color: rgb(48, 65, 86);
     }
     .header {
-        height: 50px;
+        height: 45px;
         border-bottom: 1px solid #e5e5e5;
         display: flex;
         align-items: center; 
