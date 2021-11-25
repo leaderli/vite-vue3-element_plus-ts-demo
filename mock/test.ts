@@ -40,5 +40,25 @@ export default [
             res.statusCode = 200;
             res.end(`hello, ${reqbody}`);
         }
+    },
+    {
+        url: '/api/scene',
+        method: 'get',
+        response: () => {
+            return {
+                code: 0,
+                data: {
+                    'list|10': [{
+                    'id|+1': 1,
+                    username: '@cname()',
+                    'age|15-40': 0,
+                    date: '@date(yyyy-mm-dd)',
+                    'description|10':'*',
+                    email: '@email()' 
+                    
+                    }]
+                }
+            };
+        }
     }
 ] as MockMethod[];

@@ -97,16 +97,59 @@
         </div>
         <!-- 表格部分 -->
         <div>
-            <el-table>
-                <el-table-clumn label='ID'>1</el-table-clumn>
-                <el-table-clumn label='Name'>2</el-table-clumn>
-                <el-table-clumn label='Description'>3</el-table-clumn>
-                <el-table-clumn label='gender'>4</el-table-clumn>
+            <el-table
+                :data='list'
+                border
+            >
+                <el-table-column
+                    label='ID'
+                    prop='id'
+                />
+                <el-table-column
+                    label='Name'
+                    prop='username'
+                />
+                <el-table-column
+                    label='age'
+                    prop='age'
+                />
+                <el-table-column
+                    label='Description'
+                    prop='description'
+                />
+                <el-table-column
+                    label='email'
+                    prop='email'
+                />
+                <el-table-column
+                    label='date'
+                    prop='date'
+                />
             </el-table>
         </div>
     </div>
 </template>
 <script setup lang='ts'>
+import { reactive } from 'vue';
+import axios from 'axios';
+const list:any = reactive([]);
+
+axios.get('/api/scene').then(res => {
+    if(res.data.data.list.length > 0) {
+        let i:number;
+        for(i = 0; i < res.data.data.list.length; i++) {
+            list.push(res.data.data.list[i]);
+        }   
+    }
+    console.log(list);
+    
+   
+    console.log(list);
+    
+});
+
+
+
 </script>
 <style scoped lang='scss'>
 .layui-ellem-quote{

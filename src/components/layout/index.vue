@@ -4,7 +4,7 @@
             width='auto'
             class='asside'
         >
-            <MenuBar />
+            <menu-bar />
         </el-aside>
         <el-container>
             <el-header class='header'>

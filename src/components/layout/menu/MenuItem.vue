@@ -13,12 +13,6 @@
             <span>{{ menuBar.meta.title }}</span>
         </template>
         <el-menu-item-group>
-            <menubar-item
-                v-for='v in menuBar.children'
-                :key='v.path'
-                :index='v.path'
-                :menu-list='v'
-            />
 
             <menu-item
                 v-for='item in menuBar.children'

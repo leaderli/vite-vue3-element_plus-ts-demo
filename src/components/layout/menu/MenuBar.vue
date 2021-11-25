@@ -1,5 +1,5 @@
 <template>
-    <MenuLogo
+    <menu-logo
         v-if='!siderBar.collapse'
         class='layout-logo'
     />
