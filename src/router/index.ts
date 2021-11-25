@@ -72,8 +72,8 @@ export const allowRouter: Array<IMenubar> = [
         }
     },
     {
-        path: '/scene',
-        name: 'scene',
+        path: '/jinscene',
+        name: 'jinscene',
         component: LayOut,
         meta: {
             title: '菜单',
@@ -81,9 +81,9 @@ export const allowRouter: Array<IMenubar> = [
         },
         children: [
             {
-                path: '/scene',
-                name: 'scene',
-                component: () => import('@/views/scene/scene.vue'),
+                path: '/jinscene',
+                name: 'jinscene',
+                component: () => import('@/views/jinscene/jinscene.vue'),
                 meta: {
                     title: '菜单',
                     icon: 'Setting'

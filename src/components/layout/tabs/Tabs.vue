@@ -24,20 +24,15 @@ const router = useRouter();
 const route = useRoute();
 const tabBar = defineTabs();
 const tabRemove = function(targetName: string) {
-    console.log('remove',targetName);
-    
     tabBar.removeTab(targetName);
 };
 
 
 watch(() => tabBar,() => {
-
-    console.log('watch tabs 1',tabBar);
-
+//
 });
 watch(() => route.path, () => {
     // 设置激活的选项卡
-    console.log('----> watch',route.path);
     
 });
 // 解决刷新数据丢失的问题
@@ -57,7 +52,6 @@ watch(() => route.path, () => {
 //     // beforeRefresh()
 // });
 const tabClick = function(tab:any) {
-    console.log('tabClick',tab.props);
     const { props } = tab;
     router.push({ path: props.name });
 

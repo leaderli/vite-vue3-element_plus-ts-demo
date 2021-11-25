@@ -45,7 +45,6 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue';
-
 import { IMenubar } from '@/type/layout';
 import defineTabs from '@/store/modules/tabs';
 

@@ -100,29 +100,30 @@
             <el-table
                 :data='list'
                 border
+                highlight-current-row
             >
                 <el-table-column
                     label='ID'
                     prop='id'
                 />
                 <el-table-column
-                    label='Name'
+                    label='姓名'
                     prop='username'
                 />
                 <el-table-column
-                    label='age'
+                    label='年龄'
                     prop='age'
                 />
                 <el-table-column
-                    label='Description'
+                    label='描述'
                     prop='description'
                 />
                 <el-table-column
-                    label='email'
+                    label='邮箱'
                     prop='email'
                 />
                 <el-table-column
-                    label='date'
+                    label='日期'
                     prop='date'
                 />
             </el-table>
@@ -135,17 +136,12 @@ import axios from 'axios';
 const list:any = reactive([]);
 
 axios.get('/api/scene').then(res => {
-    if(res.data.data.list.length > 0) {
+    if(res.data.list.length > 0) {
         let i:number;
-        for(i = 0; i < res.data.data.list.length; i++) {
-            list.push(res.data.data.list[i]);
+        for(i = 0; i < res.data.list.length; i++) {
+            list.push(res.data.list[i]);
         }   
-    }
-    console.log(list);
-    
-   
-    console.log(list);
-    
+    }   
 });
 
 

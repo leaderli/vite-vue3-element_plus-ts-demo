@@ -47,8 +47,7 @@ export default [
         response: () => {
             return {
                 code: 0,
-                data: {
-                    'list|10': [{
+                'list|10': [{
                     'id|+1': 1,
                     username: '@cname()',
                     'age|15-40': 0,
@@ -56,8 +55,7 @@ export default [
                     'description|10':'*',
                     email: '@email()' 
                     
-                    }]
-                }
+                }]
             };
         }
     }
