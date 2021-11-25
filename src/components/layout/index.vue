@@ -4,7 +4,7 @@
             width='auto'
             class='asside'
         >
-            <menu-bar />
+            <jinmenu-bar />
         </el-aside>
         <el-container>
             <el-header class='header'>
@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import Header from '@/components/layout/header/index.vue';
-import MenuBar from '@/components/layout/menu/MenuBar.vue';
+import JinmenuBar from '@/components/layout/menu/JinmenuBar.vue';
 
 </script>
 <style scoped lang="scss">

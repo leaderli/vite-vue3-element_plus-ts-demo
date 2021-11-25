@@ -14,7 +14,7 @@
         </template>
         <el-menu-item-group>
 
-            <menu-item
+            <jinmenu-item
                 v-for='item in menuBar.children'
                 :key='item.path'
                 :index='item.path'

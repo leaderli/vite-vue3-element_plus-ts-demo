@@ -1,5 +1,5 @@
 <template>
-    <menu-logo
+    <jinmenu-logo
         v-if='!siderBar.collapse'
         class='layout-logo'
     />
@@ -9,7 +9,7 @@
         background-color='#1f2d3d'
         router
     >
-        <menu-item
+        <jinmenu-item
             v-for='item in allowRouter'
             :key='item.path'
             :index='item.path'
@@ -21,8 +21,8 @@
 
 <script setup lang="ts">
 import { defineSiderBar } from '@/store/modules/layout';
-import MenuItem from '@/components/layout/menu/MenuItem.vue';
-import MenuLogo from '@/components/layout/menu/MenuLogo.vue';
+import JinmenuItem from '@/components/layout/menu/JinmenuItem.vue';
+import JinmenuLogo from '@/components/layout/menu/JinmenuLogo.vue';
 import { allowRouter } from '@/router';
 
 

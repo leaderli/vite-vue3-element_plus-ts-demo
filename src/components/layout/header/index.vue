@@ -1,10 +1,10 @@
 <template>
     <el-row style='width: -webkit-fill-available;'>
         <el-col :span='2'>
-            <Collapse />
+            <jin-collapse />
         </el-col>
         <el-col :span='20'>
-            <Tabs class='tablist' />
+            <jin-tabs class='tablist' />
         </el-col>
         <el-col :span='2'>
             <div class='dropdown'>
@@ -25,8 +25,8 @@
     </el-row>
 </template>
 <script setup lang='ts'>
-import Collapse from '@/components/layout/header/Collapse.vue';
-import Tabs from '@/components/layout/tabs/Tabs.vue';
+import JinCollapse from '@/components/layout/header/JinCollapse.vue';
+import JinTabs from '@/components/layout/tabs/JinTabs.vue';
 import { useRouter } from 'vue-router';
 import cookies from '@/util/cookie';
 const router = useRouter();
