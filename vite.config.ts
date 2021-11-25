@@ -7,7 +7,14 @@ import { viteMockServe } from 'vite-plugin-mock';
 export default defineConfig(({ command }) => {
     return {
         plugins: [
-            vue(),
+            vue({
+                template: {
+                    compilerOptions: {
+                        isCustomElement : (tag) => tag.startsWith('menubar-item')
+
+                    }
+                }
+            }),
             viteMockServe({
                 // default
                 mockPath: 'mock',
