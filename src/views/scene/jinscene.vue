@@ -96,7 +96,15 @@
             </el-form>
         </div>
         <div class='layui-ellem-quote'>
-            菜单列表
+            <span>菜单列表</span>
+            <el-row style='float:right'>
+                <el-button
+                    size='mini'
+                    icon='Plus'
+                    type='primary'
+                    plain
+                >新增</el-button>
+            </el-row>
         </div>
         <!-- 表格部分 -->
         <div>
@@ -193,5 +201,8 @@ axios.get('/api/scene').then(res => {
 }
 .searchbtn{
     margin: 25px;
+}
+.el-link{
+    margin-right: 10px;
 }
 </style>
