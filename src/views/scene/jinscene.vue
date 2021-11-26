@@ -95,6 +95,9 @@
                 </el-row>
             </el-form>
         </div>
+        <div class='layui-ellem-quote'>
+            菜单列表
+        </div>
         <!-- 表格部分 -->
         <div>
             <el-table
@@ -103,29 +106,63 @@
                 highlight-current-row
             >
                 <el-table-column
+                    width='80'
                     label='ID'
                     prop='id'
+                    align='center'
                 />
                 <el-table-column
-                    label='姓名'
+                    label='场景编号'
                     prop='username'
+                    align='center'
                 />
                 <el-table-column
-                    label='年龄'
+                    label='场景名称'
                     prop='age'
+                    align='center'
                 />
                 <el-table-column
-                    label='描述'
+                    label='场景类型'
                     prop='description'
+                    align='center'
                 />
                 <el-table-column
-                    label='邮箱'
+                    label='场景类别'
                     prop='email'
+                    align='center'
                 />
                 <el-table-column
-                    label='日期'
+                    label='个性化播报'
                     prop='date'
+                    align='center'
                 />
+                <el-table-column
+                    label='启用标识'
+                    prop='date'
+                    align='center'
+                />
+                <el-table-column
+                    label='审批状态'
+                    prop='date'
+                    align='center'
+                />
+                <el-table-column
+                    label='备注'
+                    prop='date'
+                    align='center'
+                />
+                <el-table-column
+                    label='操作'
+                    align='center'
+                    width='200'
+                >
+                   
+                    <el-link
+                        type='info'
+                    >详情</el-link>
+                    <el-link>当前场景</el-link>
+                    <el-link type='primary'>编辑</el-link>
+                </el-table-column>
             </el-table>
         </div>
     </div>
@@ -143,8 +180,6 @@ axios.get('/api/scene').then(res => {
         }   
     }   
 });
-
-
 
 </script>
 <style scoped lang='scss'>
