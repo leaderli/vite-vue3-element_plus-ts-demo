@@ -6,6 +6,8 @@ import 'element-plus/dist/index.css';
 import router from './router';
 import 'default-passive-events';
 import './permission';
+import 'normalize.css/normalize.css';
+
 //  引入图标
 import * as Icons from '@element-plus/icons';
 const app = createApp(App);
