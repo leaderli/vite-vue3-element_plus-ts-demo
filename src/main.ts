@@ -7,13 +7,13 @@ import router from './router';
 import 'default-passive-events';
 import './permission';
 import 'normalize.css/normalize.css';
-<<<<<<< HEAD
+
 import * as directives from '@/directives';
-=======
+
 import VueHighlightJS from 'vue3-highlightjs';
 import 'highlight.js/styles/solarized-light.css';
 
->>>>>>> cb78c4e7b044367117bddd88126ba572b611081b
+
 //  引入图标
 import * as Icons from '@element-plus/icons';
 const app = createApp(App);
