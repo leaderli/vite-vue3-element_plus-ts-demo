@@ -90,6 +90,26 @@ export const allowRouter: Array<IMenubar> = [
                 }
             }
         ]
+    },
+    {
+        path: '/demo',
+        name: 'demo',
+        component: LayOut,
+        meta: {
+            title: '示例',
+            icon: 'Box'
+        },
+        children: [
+            {
+                path: '/highlightjs',
+                name: 'highlightjs',
+                component: () => import('@/views/demo/highlightjs.vue'),
+                meta: {
+                    title: '高亮',
+                    icon: 'MagicStick'
+                }
+            }
+        ]
     }
 ];
 

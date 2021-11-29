@@ -7,6 +7,8 @@ import router from './router';
 import 'default-passive-events';
 import './permission';
 import 'normalize.css/normalize.css';
+import VueHighlightJS from 'vue3-highlightjs';
+import 'highlight.js/styles/solarized-light.css';
 
 //  引入图标
 import * as Icons from '@element-plus/icons';
@@ -22,5 +24,7 @@ Object.keys(Icons).forEach((key) => {
 // 引入pinia
 app.use(pinia);
 app.use(router);
+app.use(VueHighlightJS);
+
 app.use(ElementPlus);
 app.mount('#app');
