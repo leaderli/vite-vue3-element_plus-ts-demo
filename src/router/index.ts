@@ -100,6 +100,44 @@ export const allowRouter: Array<IMenubar> = [
             }
         
         ]
+    },
+    {
+        path: '/demo',
+        name: 'demo',
+        component: LayOut,
+        meta: {
+            title: '示例',
+            icon: 'Box'
+        },
+        children: [
+            {
+                path: '/highlightjs',
+                name: 'highlightjs',
+                component: () => import('@/views/demo/HighlightJs.vue'),
+                meta: {
+                    title: '高亮',
+                    icon: 'MagicStick'
+                }
+            },
+            {
+                path: '/nprogress',
+                name: 'nprogress',
+                component: () => import('@/views/demo/NProgress.vue'),
+                meta: {
+                    title: '进度条',
+                    icon: 'Refresh'
+                }
+            },
+            {
+                path: '/fusejs',
+                name: 'fusejs',
+                component: () => import('@/views/demo/fusejs.vue'),
+                meta: {
+                    title: '模糊搜索',
+                    icon: 'Search'
+                }
+            }
+        ]
     }
 ];
 

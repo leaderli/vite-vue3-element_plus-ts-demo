@@ -67,6 +67,7 @@ export default defineConfig(({ command }) => {
                     find: '@antv/x6-vue-shape',
                     replacement: '@antv/x6-vue-shape/lib'
                 }
+                
             ]
         },
         css: {
