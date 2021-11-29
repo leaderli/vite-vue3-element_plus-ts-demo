@@ -88,7 +88,17 @@ export const allowRouter: Array<IMenubar> = [
                     title: '菜单',
                     icon: 'Setting'
                 }
+            },
+            {
+                path: '/clipboard',
+                name: 'clipboard',
+                component: () => import('@/views/scene/clipboard.vue'),
+                meta: {
+                    title: 'clipboard',
+                    icon: 'Setting'
+                }
             }
+        
         ]
     }
 ];
