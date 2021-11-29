@@ -103,10 +103,19 @@ export const allowRouter: Array<IMenubar> = [
             {
                 path: '/highlightjs',
                 name: 'highlightjs',
-                component: () => import('@/views/demo/highlightjs.vue'),
+                component: () => import('@/views/demo/HighlightJs.vue'),
                 meta: {
                     title: '高亮',
                     icon: 'MagicStick'
+                }
+            },
+            {
+                path: '/nprogress',
+                name: 'nprogress',
+                component: () => import('@/views/demo/NProgress.vue'),
+                meta: {
+                    title: '进度条',
+                    icon: 'Refresh'
                 }
             }
         ]
