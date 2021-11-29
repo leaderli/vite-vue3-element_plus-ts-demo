@@ -117,6 +117,15 @@ export const allowRouter: Array<IMenubar> = [
                     title: '进度条',
                     icon: 'Refresh'
                 }
+            },
+            {
+                path: '/fusejs',
+                name: 'fusejs',
+                component: () => import('@/views/demo/fusejs.vue'),
+                meta: {
+                    title: '模糊搜索',
+                    icon: 'Search'
+                }
             }
         ]
     }
