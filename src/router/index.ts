@@ -97,6 +97,15 @@ export const allowRouter: Array<IMenubar> = [
                     title: 'clipboard',
                     icon: 'Setting'
                 }
+            },
+            {
+                path: '/uploading',
+                name: 'upload',
+                component: () => import('@/views/scene/uploading.vue'),
+                meta: {
+                    title: 'uploading',
+                    icon: 'Setting'
+                }
             }
         
         ]
