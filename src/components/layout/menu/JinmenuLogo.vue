@@ -11,7 +11,7 @@
 </script>
 <style scoped lang="scss">
 .logo{
-background-color: #2b2f3a;
+background-color: #304156;
 height: 50px;
 border: none;
 line-height: 50px;

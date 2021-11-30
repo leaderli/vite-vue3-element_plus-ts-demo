@@ -6,7 +6,7 @@
     <el-menu
         class='el-menu-vertical-demo'
         :collapse='siderBar.collapse'
-        background-color='#1f2d3d'
+        background-color='#304156'
         router
     >
         <jinmenu-item
@@ -56,7 +56,7 @@ const siderBar = defineSiderBar();
     color: #f4f4f5 !important;
 }
 :deep(.el-menu-item) {
-    background-color: #1f2d3d !important;
+    background-color: #304156 !important;
 }
 :deep(.el-menu .el-menu__item) {
     color: #a7b4c4;
@@ -80,6 +80,9 @@ const siderBar = defineSiderBar();
   background-color: #001528 !important;
 } */
 :deep(.el-sub-menu__title:hover) {
-    background-color: #001528 !important;
+    background-color: #1f2d3d !important;
+}
+:deep(.el-menu-item-group__title){
+   padding: 0!important;
 }
 </style>

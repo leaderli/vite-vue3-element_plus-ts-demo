@@ -88,7 +88,26 @@ export const allowRouter: Array<IMenubar> = [
                     title: '菜单',
                     icon: 'Setting'
                 }
+            },
+            {
+                path: '/clipboard',
+                name: 'clipboard',
+                component: () => import('@/views/scene/clipboard.vue'),
+                meta: {
+                    title: 'clipboard',
+                    icon: 'Setting'
+                }
+            },
+            {
+                path: '/uploading',
+                name: 'upload',
+                component: () => import('@/views/scene/uploading.vue'),
+                meta: {
+                    title: 'uploading',
+                    icon: 'Setting'
+                }
             }
+
         ]
     },
     {
@@ -128,7 +147,35 @@ export const allowRouter: Array<IMenubar> = [
                 }
             }
         ]
-    }
+    },
+    {
+        path: '/sysmanage',
+        name: 'sysmanage',
+        component: LayOut,
+        meta: {
+            title: 'Demo',
+            icon: 'Operation'
+        },
+        children:[
+            {
+                path: '/usermanage',
+                name: '模糊查询',
+                component: () => import('@/views/sysmanage/usermanage.vue'),
+                meta: {
+                    title: '模糊查询',
+                    icon: 'Avatar'
+                }
+            },{
+                path: '/download',
+                name: '文件下载',
+                component: () => import('@/views/sysmanage/download.vue'),
+                meta: {
+                    title: '文件下载',
+                    icon: 'Download'
+                }
+            }
+        ]
+    },
 ];
 
 const router:Router = createRouter({
