@@ -58,5 +58,24 @@ export default [
                 }]
             };
         }
+    },
+    {
+        url: '/api/usermanage',
+        method: 'get',
+        response: () => {
+            return {
+                code: 0,
+                'list|10': [{
+                    'id|+1': 1,
+                    username: '@cname()',
+                    createtime: '@date(yyyy-mm-dd)',
+                    userrole:'超级管理员',
+                    email: '@email()',
+                    phone:/\d{1,11}/,
+                    statu:'1'
+
+                }]
+            };
+        }
     }
 ] as MockMethod[];
